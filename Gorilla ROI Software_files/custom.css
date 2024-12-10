@@ -1,0 +1,1235 @@
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999999;
+    font-size: 2em;
+    background-color: #0000003b;
+}
+#loading i {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.required-field {
+    color: red;
+}
+
+.remove-email, .edit-email, .add-email,
+.remove-seller, .edit-seller, .add-seller {
+    cursor: pointer;
+}
+
+.sidebar .nav li .nav-link {
+    padding: 4px 15px;
+}
+
+/* .modal-seller .modal-dialog .card-normal {
+    padding: 0 15px 0 15px;
+}
+
+.modal-seller .modal-dialog .row-seller .row-seller-action {
+    width: 70px;
+    height: 56px;
+}
+
+.modal-seller .btn-question {
+    padding: 4px 0 7px 0;
+}
+
+.modal-seller .btn-warning {
+    padding: 4px 0 7px 0;
+    color: #FF9500;
+}
+
+.modal-seller .modal-dialog .btn:disabled {
+    background-color: transparent;
+    border-color: #888888;
+    color: #888888;
+    cursor: default;
+}
+
+.modal-seller .small-95 {
+    font-size: 95%;
+} */
+
+#sellerList .form-check .form-check-sign::before,
+#sellerList .form-check .form-check-sign::after {
+    position: relative;
+}
+
+#sellerList td:last-child {
+    width: 100%;
+}
+.can-add-seller {
+    flex: 1
+}
+.dropdown-menu {
+  width: 200px;
+  left: -90%;
+  top: 45px;
+}
+.dropdown-menu .dropdown-item i[class*="fa-"] {
+  font-size: 18px;
+  text-align: center;
+  line-height: 25px;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+.navbar-nav .nav-item .dropdown-menu:after, .navbar-nav .nav-item .dropdown-menu:before {
+  left: 129px !important;
+}
+.card-border .card-footer {
+  border-top: solid 1px #eee !important;
+}
+.title-border {
+  border-bottom: solid 1px #ccc;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+.packages .btn {
+  white-space: normal;
+}
+@media (max-width: 991px) {
+  .nav-mobile-menu .dropdown .dropdown-menu .dropdown-item {
+     margin: 0 !important;
+  }
+}
+
+/* .modal-dialog .card {
+    margin: 30px 15px;
+}
+
+.modal-flex .card .card-footer .row {
+    display: flex;
+} */
+
+.btn-sellersactions {
+    padding: 8px 2px;
+}
+
+.btn-collapseactions {
+    padding: 0px 0px;
+}
+
+/* .modal.show .modal-dialog {
+    -webkit-transform: translate(-50%, -55%);
+    -o-transform: translate(-50%, -55%);
+    transform: translate(-50%, -55%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+} */
+
+/* .modal-template {
+    max-width: max-content;
+}
+@media (min-width: 576px) and (max-width: 1024px) {
+  .modal-dialog {
+    max-width: 550px;
+  }
+}
+@media screen and (min-width: 1025px) {
+    .modal-dialog {
+        max-width: 845px;
+    }
+} */
+.border-top {
+  border-top: 1px solid #ccc;
+}
+.cursor-pointer {
+    cursor: pointer;
+    line-height: 40px;
+}
+
+.cursor-pointer-simple {
+    cursor: pointer;
+}
+
+.container-token {
+    background-color: #F5F5F5;
+    border: 1px solid #E3E3E3;
+    border-radius: 4px;
+}
+.noti-expires {
+    display: inline-block;
+    font-size: 14px;
+    margin-top: .5rem;
+}
+.my-login-page .footer-thankyou {
+    margin: 40px 0;
+    color: #888;
+    text-align: center;
+    background-color: #f7f9fb;
+    bottom: 0;
+    position: fixed;
+}
+#authorizeSeller, #linkNewAccount, #authorizeAdsAccount {
+    border: 1px solid;
+    border-radius: 0.2rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+@media screen and (max-width: 576px)  {
+    .button-add {
+        margin-top: 10px;
+    }
+}
+@media screen and (max-width: 361px) {
+    #linkNewAccount {
+        margin-bottom: 5px;
+    }
+}
+.installGuideContent {
+    margin-top: 20px;
+}
+.installGuideName {
+    font-size: 22px;
+}
+.installGuideDesc {
+    margin: 1rem 0 2rem 0;
+    line-height: 1.6;
+    word-break: break-word;
+}
+.custom-checkbox {
+    line-height: normal;
+    padding-top: 12px;
+}
+.form-check.guid ul .list-group-item {
+    border: none;
+}
+.checklist-dashboard{
+    border-top: solid 1px #eee;
+}
+.checklist-dashboard .check-correct, .checklist-dashboard .check-error{
+    line-height: 30px;
+}
+.custom-label {
+    margin: .1rem 0 0 1rem;
+}
+.custom-label-dashboard {
+    margin: .1rem 0 0 1rem;
+    font-size: 14px !important;
+    text-transform: none !important;
+    color: #212529 !important;
+    line-height: 30px;
+}
+.check-correct {
+    font-size: 20px;
+    color: #00AA73;
+}
+.check-error {
+    font-size: 20px;
+    color: red;
+}
+.form-check .form-check-sign.checked::after {
+    color: #888888;
+}
+.onetime-checked {
+    opacity: 0.6;
+}
+@media screen and (max-width: 756px) {
+    .custom-control.custom-checkbox.guid-form-check {
+        padding-left: 0 ;
+    }
+}
+
+.btn-status {
+    min-width: 98px;
+}
+.item-price {
+    font-weight: 500;
+}
+.item-name {
+    font-size: 15px !important;
+    max-width: 65%;
+}
+.item-summary {
+    padding-left: 1em;
+    position: relative;
+    min-height: 8em;
+}
+
+.item-summary .loading {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 48%;
+    font-size: 2em;
+}
+.item-summary .loading i {
+    width: 32px;
+}
+
+.item-summary-registration .loading i {
+    width: 32px;
+}
+
+.item-summary-registration .loading {
+    display: block;
+    position: absolute;
+    top: 10%;
+    right: 40%;
+    font-size: 2em;
+}
+#btn-checkout-block .btn-checkout {
+    background: #ffc600;
+    /*border: none !important;*/
+    font-size: 16px;
+    border-radius: 4px;
+    /* color: #000 !important; */
+    font-weight: 600;
+    cursor: pointer;
+}
+.negative-text {
+    font-style: italic;
+    color: #31c271;
+}
+.positive-text {
+    color: rgb(231, 90, 90);
+}
+.note-text {
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 400;
+}
+.monthly-fee {
+    margin-top: 1.5em;
+}
+.accordions [data-toggle="collapse"] .caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    vertical-align: middle;
+    border-top: 5px dashed;
+    border-top: 5px solid\9;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    position: absolute;
+    left: 0;
+    top: 45%;
+    -webkit-transition: all 150ms ease-in;
+    -moz-transition: all 150ms ease-in;
+    -o-transition: all 150ms ease-in;
+    -ms-transition: all 150ms ease-in;
+    transition: all 150ms ease-in;
+}
+.accordions [data-toggle="collapse"].collapsed .caret {
+    transform: rotate(-90deg);
+}
+.accordions h5 a {
+    color: #333333;
+    position: relative;
+    padding-left: 15px;
+    font-weight: 600;
+    font-size: 17px;
+    text-decoration: none;
+}
+
+.font-size-16 {
+    font-size: 1rem !important;
+}
+
+.font-size-15 {
+    font-size: 15px !important;
+}
+
+.font-size-18 {
+    font-size: 1.25rem;
+}
+
+.text-color-purple {
+    color: #90489e;
+}
+
+.grid-2 {
+    padding-left: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.font-weight-500 {
+    font-weight: 500 !important;
+}
+
+.font-weight-400 {
+    font-weight: 400 !important;
+}
+
+.font-size-17 {
+    font-size: 17px !important;
+}
+
+.line {
+    height: 1px;
+    background-color: #E0E0E0;
+    margin: 0.5rem -12px 1rem;
+}
+
+.line2 {
+    height: 1px;
+    background-color: #E0E0E0;
+    margin: 0.5rem -16px 1rem;
+}
+
+.word-break {
+    word-break: break-word;
+}
+
+.w-65 {
+    width: 65%;
+}
+
+input[type='radio'] {
+    cursor: pointer;
+}
+
+.next-step:hover {
+    background-color: #EFE0EF;
+}
+
+.prev-step:hover {
+    color: #602274;
+}
+
+.prev-step {
+    color: #999999;
+}
+
+input[type="checkbox"]#term:checked {
+    accent-color: #F2BB4A;
+}
+
+.pointer {
+    cursor: pointer !important;
+}
+
+.tooltip {
+    pointer-events: none !important;
+}
+
+.sellerPage .ads-warning-sample {
+    min-width: 175px;
+}
+
+
+/*----- 15-03-2024 -----*/
+/* General CSS */
+:root {
+    --color-691C78:#691C78;
+    --color-741F84:#741F84;
+    --color-565157:#565157;
+    --color-655A67:#655A67;
+    --color-3B3B3B:#3B3B3B;
+    --color-00AA73:#00AA73;
+}
+body {
+    /* background: #FBEEFF; */
+    background: #DEDDEB;
+    color: var(--color-565157);
+}
+body, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, .btn-simple, .alert, a, .td-name, td, button.close {
+    font-family: "Manrope", sans-serif;
+    line-height: 1.5em;
+}
+a:hover, a:focus {
+    text-decoration: none;
+}
+.ms-font-500 {
+    font-weight: 500;
+}
+.ms-font-600 {
+    font-weight: 600;
+}
+.ms-font-13 {
+    font-size: 13px;
+}
+.ms-font-14 {
+    font-size: 14px;
+}
+.ms-font-15 {
+    font-size: 15px;
+}
+.ms-font-17 {
+    font-size: 17px;
+}
+.ms-font-20 {
+    font-size: 20px;
+}
+.ms-font-24 {
+    font-size: 24px;
+}
+.ms-font-26 {
+    font-size: 26px;
+}
+.ms-font-27 {
+    font-size: 27px;
+}
+.ms-font-29 {
+    font-size: 29px;
+}
+.ms-font-37 {
+    font-size: 37px;
+}
+.ms-primary-color {
+    color:var(--color-741F84);
+}
+button {
+    cursor: pointer;
+}
+.ms-btn {
+    border: 1px solid #DEDDEB;
+    color:var(--color-565157);
+    font-size: 18px;
+    font-weight: 500;
+    padding: 11px 25px;
+    display: inline-block;
+    border-radius: 50px;
+    transition: 0.3s all linear;
+}
+.ms-btn:hover {
+    background:var(--color-741F84);
+    border: 1px solid var(--color-741F84);
+    color:#fff;
+}
+.ms-green-btn {
+    background: var(--color-00AA73);
+    border: 1px solid var(--color-00AA73);
+    color: #fff;
+    font-weight: 600;
+}
+.ms-green-btn:hover {
+    background: var(--color-741F84);
+    border-color: var(--color-741F84);
+}
+.ms-green-btn .ms-right-icon {
+    margin-left: 3px;
+    transition: 0.3s all linear;
+}
+.ms-green-btn:hover .ms-right-icon {
+    margin-left: 7px;
+}
+.ms-green-btn:focus {
+    color:#fff;
+}
+.ms-purple-btn {
+    background: var(--color-691C78);
+    color: #fff;
+    border-color: var(--color-691C78);
+}
+.ms-purple-btn:hover, .ms-purple-btn:focus {
+    background: var(--color-00AA73);
+    border-color: var(--color-00AA73);
+    color:#fff;
+}
+.ms-watch-btn {
+    display: inline-flex;
+    align-items: center;
+    padding-left: 9px;
+}
+.ms-border-green-btn, .ms-border-orange-btn {
+    border: 2px solid var(--color-00AA73);
+    font-size: 16px;
+    color: var(--color-00AA73);
+    line-height: 1em;
+    padding: 12px 25px;
+}
+.ms-border-green-btn:hover {
+    border: 2px solid var(--color-00AA73);
+    background: var(--color-00AA73);
+}
+.ms-border-orange-btn {
+    border: 2px solid #EA8F25;
+    color: #EA8F25;
+}
+.ms-border-orange-btn:hover {
+    border: 2px solid #EA8F25;
+    background: #EA8F25;
+    color: #fff;
+}
+.ms-checklist-link {
+    color: var(--color-691C78);
+    border: 1px solid var(--color-691C78);
+    border-radius: 50px;
+    padding: 2px 10px;
+    transition: 0.3s all linear;
+}
+.ms-checklist-link svg:last-child {
+    transition: 0.3s all linear;
+}
+.ms-checklist-link:hover {
+    border: 1px solid var(--color-00AA73);
+}
+.ms-checklist-link:hover svg:last-child {
+    margin-left: 3px;
+}
+/* Modal CSS */
+.modal {
+    /* background: rgba(105, 28, 120, 0.7); */
+    background: rgba(0,0,0,0.5);
+}
+.modal.show .modal-dialog {
+    transform: translate(0, 0);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: calc(100% - (1.75rem * 2));
+}
+.modal-dialog {
+    max-width: 610px !important;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: calc(100% - (1.75rem * 2));
+}
+.modal-dialog .modal-content {
+    border-radius: 20px;
+}
+.modal-dialog button.close {
+    font-size: 40px;
+    line-height: 1em;
+    cursor: pointer;
+}
+.modal-dialog button.close:focus {
+    outline: none;
+}
+/* Sidebar CSS */
+.ms-sidebar .sidebar-wrapper {
+    background: #000;
+}
+.ms-sidebar .logo {
+    padding: 8px 30px !important;
+    height: 68px;
+    width: auto !important;
+}
+.ms-sidebar .logo img {
+    height: 100%;
+}
+.ms-sidebar .nav-link {
+    font-size: 15px !important;
+    color:#F9D9FF !important;
+    text-transform: capitalize !important;
+    font-weight: 400 !important;
+    padding: 16px 28px !important;
+    border-radius: 0 !important;
+    margin: 5px 0 !important;
+}
+.ms-sidebar .nav-item.active .nav-link {
+    color: #fff !important;
+    background: var(--color-691C78) !important;
+    font-weight: bold !important;
+}
+.ms-sidebar .nav-item:hover .nav-link {
+    background: var(--color-691C78) !important;
+    color:#fff !important;
+}
+.ms-sidebar .nav-link svg {
+    color:#F4BEFF;
+    transition: 0.3s all linear;
+}
+.ms-sidebar .nav-item.active .nav-link svg, .ms-sidebar .nav-link:hover svg {
+    color: #fff;
+}
+.ms-sidebar-cta {
+    background: #380642;
+    border-radius: 15px;
+    margin:0 30px;
+    padding: 22px;
+}
+.ms-sidebar-cta p {
+    color:#F9D9FF;
+}
+.ms-sidebar-cta .ms-green-btn {
+    font-size: 15px;
+    font-weight: 500;
+}
+.ms-sidebar-footer {
+    padding: 30px;
+    font-size: 15px;
+    color: #c2c2c2;
+}
+/* Header CSS */
+.ms-navbar {
+    min-height: 68px;
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,0.03);
+}
+.ms-navbar .navbar-brand {
+    font-size: 23px;
+    color:#515151;
+}
+.ms-navbar .nav-link {
+    color: #000 !important;
+    font-size: 15px;
+    font-weight: 500;
+}
+.ms-navbar .nav-link:hover {
+    color: var(--color-741F84) !important;
+}
+.ms-navbar .nav-item .dropdown-menu {
+    margin-top: 0 !important;
+    left: -120%;
+    top: 60px;
+}
+/* Dashboard Page CSS */
+.ms-box {
+    border-radius: 15px;
+}
+.ms-subscription-box {
+    border: 2px solid var(--color-741F84);
+    background: url('../images/subscription_box_bg.svg') no-repeat 101% -2px;
+    margin-bottom: 30px;
+}
+.ms-id-area {
+    border: 1px dashed #DCC4E2;
+    border-radius: 6px;
+    color:var(--color-655A67);
+    font-weight: 500;
+}
+.ms-copy-area {
+    font-size: 15px;
+    color: var(--color-691C78);
+}
+.ms-copy-area:hover {
+    color: var(--color-691C78);
+}
+button.ms-copy-area {
+    background: transparent;
+    border:none;
+}
+button.ms-copy-area:focus, button.ms-copy-area:focus-visible {
+    border: none;
+    outline: none;
+}
+.ms-subscription-box-text {
+    border: 1px solid #EEFAE6;
+    background: #FCFCFC;
+    border-radius: 6px;
+    font-size: 13px;
+    color: var(--color-3B3B3B);
+}
+.ms-seller-registered-box {
+    background: url('../images/sellers_registered_bg.svg') no-repeat 101% -2px;
+    margin-bottom: 30px;
+}
+.ms-subscription-details-box {
+    background: #000;
+    padding: 30px 55px 45px;
+    margin-bottom: 30px;
+}
+.ms-subscription-details-box .ms-subscription-row {
+    background: var(--color-741F84);
+    border-radius: 6px;
+    padding: 12px 10px;
+}
+.ms-status-active {
+    width: 13px;
+    height: 13px;
+    background: var(--color-00AA73);
+    border-radius: 50%;
+}
+.ms-subscription-details-box-footer-area a span {
+    background: linear-gradient(to right, #8DC993, #DF40FF);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.3s all linear;
+}
+.ms-subscription-details-box-footer-area a:hover span {
+    background: linear-gradient(to right, #DF40FF, #8DC993);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.3s all linear;
+}
+.ms-checklist-box {
+    padding: 45px;
+    border: 1px solid #EEEEEE;
+    margin-bottom: 30px;
+}
+.ms-checklist-list > svg {
+    min-width:30px;
+}
+.ms-howtouse-box {
+    padding: 45px;
+    border: 1px solid #EEEEEE;
+    background: url('../images/howtouse_bg.svg') no-repeat 101% -2px;
+    margin-bottom: 30px;
+}
+.ms-install-gorilla-box {
+    background: url('../images/install_gorilla_bg.jpg') no-repeat center;
+    background-size: cover;
+    padding: 45px;
+}
+.ms-install-gorilla-btn:hover {
+    background: var(--color-00AA73);
+    border: 1px solid var(--color-00AA73);
+    color: #fff;
+}
+.ms-product-box img {
+    height: 115px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+/* Install Checklist Page CSS */
+.ms-checklist-bg {
+    background: url('../images/install_checklist_bg.svg') no-repeat center right;
+}
+.ms-steps {
+    font-size: 19px;
+    font-weight: 600;
+    border-radius: 50px;
+    border: double 2px transparent;
+    display:inline-block;
+    background-image: linear-gradient(white, white), radial-gradient(circle at top left, #90C596,#DC43FC);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+.ms-steps span {
+    width: 22px;
+    height: 22px;
+    background: var(--color-691C78);
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 800;
+}
+/* Manage COGS Page CSS */
+.ms-nav-tabs nav a {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--color-691C78);
+    padding: 15px 0 !important;
+    margin: 0 20px;
+}
+.ms-nav-tabs nav a.active, .ms-nav-tabs nav a:focus {
+    border-color:#fff #fff #fff !important;
+    border-bottom: 4px solid var(--color-691C78) !important;
+    color: var(--color-691C78) !important;
+}
+.ms-nav-tabs nav a:hover {
+    border-color: #fff #fff var(--color-691C78) !important;
+}
+.ms-nav-tabs nav a.active {
+    font-weight: bold !important;
+}
+.ms-table-responsive {
+    border: 1px solid #EEEEEE;
+}
+.ms-table-responsive table th {
+    font-size: 15px;
+    font-weight: bold;
+}
+.ms-table-responsive table td {
+    font-size: 13px;
+    font-weight: 500;
+}
+.ms-table-responsive table th, .ms-table-responsive table td {
+    padding: 15px 12px;
+}
+.ms-table-responsive table tr {
+    border-bottom: 1px solid #EEEEEE;
+}
+.ms-table-responsive table tr:nth-child(odd) {
+    background: #DEDDEB;
+}
+.ms-table-responsive table tr:first-child {
+    background:#fff;
+}
+.ms-add-edit-box, .ms-add-edit-box:focus, .ms-add-edit-box:hover {
+    font-size: 13px;
+    font-weight: 600;
+    background: #FFC600;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    color: var(--color-565157);
+}
+.ms-add-edit {
+    position: relative;
+}
+.ms-add-edit .dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top:0;
+    width: 270px;
+    left: -270px;
+    padding: 0;
+    margin: 0;
+    margin-top: 3px;
+    text-align: left;
+}
+.ms-cogs-list {
+    list-style: none;
+}
+.ms-cogs-list h5 {
+    font-size: 20px;
+}
+.ms-cogs-list li > span {
+    font-size: 13px;
+}
+.ms-cogs-list li > span div {
+    display: none;
+}
+.ms-cogs-list li:hover > span div {
+    display: block;
+}
+.ms-cogs-list li:hover > span svg {
+    position: relative;
+    top: 2px;
+}
+.ms-cogs-list li {
+    border-bottom: 1px solid #1111;
+}
+.ms-cogs-list li:last-child {
+    border: none;
+    margin-bottom: 0 !important;
+}
+.ms-add-icon {
+    background: var(--color-00AA73);
+    color: #fff;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    padding: 4px;
+}
+.ms-table-footer {
+    border: 1px solid #EEEEEE;
+    border-top: none;
+    border-radius: 0 0 15px 15px;
+    padding: 17px 30px;
+}
+.ms-table-footer select {
+    padding: 13px 25px 13px 10px;
+}
+.ms-table-pagination {
+    display: flex;
+    align-items: center;
+}
+.ms-table-pagination a {
+    width: 35px;
+    height: 35px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-565157);
+    border-radius: 50%;
+    margin: 0 5px;
+    transition: 0.3s all linear;
+}
+.ms-table-pagination a.active, .ms-table-pagination a:hover {
+    background: var(--color-691C78);
+    color: #fff;
+}
+.ms-table-header {
+    background: var(--color-691C78);
+    border-radius: 15px 15px 0 0;
+    padding: 5px 20px;
+}
+select {
+    padding: 15px 60px 15px 20px;
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: 600;
+    appearance: none;
+    background: #fff url('../images/select_down_angle_arrow.svg') no-repeat 90% 50%;
+    line-height: 1em;
+}
+select:focus-visible {
+    outline: none;
+}
+input[disabled] {
+    cursor: not-allowed;
+    background-color: #F5F5F5;
+    color: #888888;
+}
+input, .ms-inner-textarea {
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1em;
+}
+.ms-inner-select, .ms-inner-input, .ms-inner-textarea {
+    border: 2px solid #EDDFF0;
+    min-height: 56px;
+    padding: 15px 18px;
+}
+.ms-inner-textarea {
+    line-height: 1.6em;
+}
+.ms-inner-select {
+    background-position: 95% 50%;
+}
+.ms-inner-select:focus, .ms-inner-input:focus, .ms-inner-textarea:focus {
+    border-color: var(--color-741F84);
+}
+.ms-table-radius, .ms-table-radius th:first-child, .ms-table-radius th:last-child {
+    border-radius: 15px;
+}
+.ms-table-radius tr:last-child td:first-child {
+    border-radius: 0 0 0 15px;
+}
+.ms-table-radius tr:last-child td:last-child {
+    border-radius: 0 0 15px 0;
+}
+.ms-table-radius tr:last-child {
+    border-bottom: none;
+}
+.ms-one span {
+    width: 22px;
+    height: 22px;
+    background: var(--color-691C78);
+    border-radius: 50%;
+    font-weight: 800;
+}
+.ms-inner-row {
+    border: 1px solid var(--color-691C78);
+    border-radius: 13px;
+}
+.ms-upload-area {
+    background: #FDF5FF;
+    border: 1px dashed #E8C6F1;
+    border-radius: 12px;
+    padding: 25px 25px 25px 40px;
+    color:#C7A6CF;
+}
+.ms-upload-btn {
+    background: #fff;
+    color: var(--color-00AA73);
+}
+.ms-upload-btn:focus {
+    color: var(--color-00AA73);
+}
+.ms-add-new-seller-btn:hover {
+    color: #fff !important;
+}
+.ms-add-new-seller-btn:focus {
+    color: var(--color-00AA73);
+}
+.ms-upload-btn2:focus {
+    color:#fff;
+    background:var(--color-691C78);
+}
+.ms-active-badge {
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    background: #35C276;
+    color: #fff;
+    padding: 4px 7px 4px 18px;
+    position: relative;
+    border-radius: 30px;
+}
+.ms-active-badge:before {
+    content: '';
+    background: #fff;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 5px;
+    border-radius: 50%;
+    left: 4px;
+}
+.ms-filters select {
+    padding: 15px 40px 15px 14px;
+}
+.ms-filters input {
+    border: none;
+    padding: 11px 18px;
+    min-height: 47.5px;
+}
+.ms-filters .ms-btn {
+    font-size: 16px;
+    min-width: 151px;
+}
+/* Seller Account Page CSS */
+.ms-seller-account-table .ms-active-badge {
+    position: relative;
+    top: -1px;
+}
+.ms-seller-account-table .ms-active-badge ~ span {
+    position: relative;
+    top: 2px;
+}
+.ms-authorise-btn {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-565157);
+    border-color: var(--color-00AA73);
+    padding: 6px 15px;
+}
+.ms-authorise-btn:focus {
+    background: var(--color-741F84);
+    color:#fff;
+}
+.ms-copy-area {
+    position: relative;
+}
+.ms-at-icon {
+    position: absolute;
+    left: 15px;
+    top: 16px;
+}
+.ms-copy-area a {
+    position: absolute;
+    color: var(--color-565157);
+    right: 15px;
+    top: 15px;
+}
+.ms-email-area input {
+    padding: 15px 90px 15px 50px;
+}
+/* Profile Page CSS */
+.ms-back-to-dashboard-link {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 16px 20px;
+    background: #29102D;
+    color: #F9D9FF;
+}
+.ms-back-to-dashboard-link:hover {
+    background: var(--color-691C78);
+    color: #fff;
+}
+.ms-icon-field input {
+    padding: 15px 15px 15px 50px;
+}
+.ms-icon-field select {
+    padding-left: 45px;
+}
+.ms-special-bg {
+    background: #FCF1FA;
+}
+/* Change Password Page CSS */
+.ms-pwd-area input {
+    padding: 15px 50px;
+}
+.ms-pwd-area a {
+    top:18px;
+}
+/* Billing History Page CSS */
+.ms-billing-history-table th:first-child {
+    min-width: 200px;
+}
+.ms-billing-history-table th:last-child {
+    min-width: 210px;
+}
+/* Update Credit Card Page CSS */
+.ms-credit-update {
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1em;
+}
+/* Change Plan Page CSS */
+.ms-circle-steps {
+    background: transparent;
+    grid-template-columns:1fr 1fr 1fr;
+}
+.md-stepper-horizontal .md-step .md-step-bar-left, .md-stepper-horizontal .md-step .md-step-bar-right {
+    border-top: 1px solid var(--color-3B3B3B);
+}
+.md-stepper-horizontal.orange .md-step.active .md-step-circle {
+    color: #fff;
+}
+.md-stepper-horizontal .md-step .md-step-circle {
+    background: var(--color-3B3B3B);
+}
+.current-plan-border {
+    border-color: var(--color-741F84);
+}
+.ms-btn-plan-back-btn {
+    background: var(--color-00AA73) !important;
+    border: 1px solid var(--color-00AA73) !important;
+    color: #fff !important;
+    height: 55px !important;
+}
+.ms-btn-plan-back-btn:hover {
+    background: var(--color-691C78);
+    color: #fff !important;
+}
+.ms-btn-plan-next-btn {
+    background: var(--color-691C78) !important;
+    color: #fff !important;
+    border-radius: 50px !important;
+    height: 55px !important;
+}
+.ms-btn-plan-next-btn:hover {
+    opacity: 0.9;
+}
+
+@media (max-width:1450px) {
+    .ms-seller-account-table {
+        overflow: hidden;
+        overflow-x: scroll;
+    }
+    .ms-seller-account-table th:nth-child(2) {
+        min-width: 130px;
+    }
+    .ms-seller-account-table th:nth-child(3) {
+        min-width: 150px;
+    } 
+    .ms-seller-account-table th:nth-child(4), .ms-seller-account-table th:nth-child(5), .ms-seller-account-table th:nth-child(6), .ms-seller-account-table th:nth-child(7) {
+        min-width: 200px;
+    }
+}
+
+@media (max-width:1200px) {
+    /* Install Checklist Page CSS */
+    .ms-checklist-bg {
+        background: #fff;
+    }
+    .ms-table-responsive {
+        overflow: hidden;
+        overflow-x: scroll;
+    }
+}
+
+@media (max-width:992px) {
+    .main-panel>.content {
+        padding: 25px 0;
+    }
+    .ms-authorise-btn {
+        font-size: 13px;
+    }
+}
+
+@media (max-width:768px) {
+    select, .ms-filters input {
+        width: 100%;
+    }
+    .ms-btn {
+        font-size: 16px;
+    }
+    .ms-authorise-btn {
+        font-size: 12px;
+        padding: 6px 11px;
+
+    }
+}
+
+@media (max-width:765px) {
+    /* Dashboard Page CSS */
+    .ms-subscription-details-box {
+        padding: 30px 45px 40px;
+    }
+    .ms-subscription-details-box .ms-subscription-row {
+        padding: 15px 5px;
+    }
+    .ms-checklist-box, .ms-howtouse-box, .ms-install-gorilla-box {
+        padding: 24px;
+    }
+}

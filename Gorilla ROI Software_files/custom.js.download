@@ -1,0 +1,838 @@
+var modalShown = false;
+var stripe;
+// Create a Stripe client.
+if (typeof Stripe === 'function') {
+  if (window.location.host == "app-dev.gorillaroi.com" || window.location.host.indexOf('localhost') > -1 || window.location.host.indexOf('ngrok') > -1) {
+    stripe = Stripe('pk_test_lIsN2yNDcCJdfBVN0JNtXc0f');
+  } else {
+    stripe = Stripe('pk_live_KcNUBuNELM1HscnKCZUTRH7g');
+  }
+}
+$(document).ready(function () {
+  $('.spinning-modal-lg').on('hidden.bs.modal', function (e) {
+    modalShown = false;
+  });
+  $('.spinning-modal-lg').on('shown.bs.modal', function (e) {
+    modalShown = true;
+  });
+  $(document).on('show.bs.modal', '.modal', function () {
+    $(this).appendTo('body');
+  });
+  $('#freeRegister').submit(function (e) {
+    e.preventDefault(e);
+    if ($('#password').val() != $('#password2').val()) {
+      subscribeErrorHandler({ responseText: "Passwords does not match, please verify" });
+      hideModal();
+      return;
+    }
+    $('.spinning-modal-lg').modal('show');
+    $.ajax({
+      type: "POST",
+      url: '/ajax/registerFree.php',
+      data: $(this).serialize(),
+      dataType: 'json'
+    })
+      .done(function (data) {
+        hideModal();
+        if (data.result) {
+          $.notify({
+            icon: "fa fa-check",
+            message: "Register done. Redirecting to login page..."
+          }, {
+            type: "success",
+            timer: 4000,
+            placement: {
+              from: "top",
+              align: "center"
+            }
+          });
+          setTimeout(function () {
+            window.location.replace('/login.php');
+          }, 4000);
+        } else {
+          failedRequest(data.error_msg)
+        }
+      })
+      .fail(failedRequest);
+  })
+  $("#login").submit(function (e) {
+    e.preventDefault(e);
+    var request = $.ajax({
+      type: "POST",
+      url: '/ajax/login.php',
+      data: $(this).serialize()
+    })
+      .done(function (data) {
+        data = JSON.parse(data);
+        if (data.success === true) {
+          if (data.lastUrl) {
+            window.location.replace(data.lastUrl);
+          } else {
+            if (searchToObject(window.location.search).redirect === "fromRegister") {
+              window.location.replace('/plan.php');
+            } else {
+              window.location.replace('/');
+            }
+          }
+        } else {
+          $.notify({
+            icon: "fa fa-exclamation",
+            message: "Invalid credentials."
+          }, {
+            type: "warning",
+            timer: 2000,
+            placement: {
+              from: "top",
+              align: "center"
+            }
+          });
+        }
+      })
+      .fail(failedRequest);
+  });
+  $("#forgot").submit(function (e) {
+    e.preventDefault(e);
+    var request = $.ajax({
+      type: "POST",
+      url: '/ajax/forgot.php',
+      data: $(this).serialize()
+    })
+      .done(function (data) {
+        if (data !== "ok") {
+          $.notify({
+            icon: "fa fa-exclamation",
+            message: "We can't send the password reset link. Please try again in a few minutes."
+          }, {
+            type: "warning",
+            timer: 2000,
+            placement: {
+              from: "top",
+              align: "center"
+            }
+          });
+        } else {
+          $.notify({
+            icon: "fa fa-check",
+            message: "Please check your mail for your password reset link."
+          }, {
+            type: "success",
+            timer: 4000,
+            placement: {
+              from: "top",
+              align: "center"
+            }
+          });
+        }
+      })
+      .fail(failedRequest);
+  });
+  $("#reset").submit(function (e) {
+    e.preventDefault(e);
+    var request = $.ajax({
+      type: "POST",
+      url: '/ajax/reset.php',
+      data: $(this).serialize()
+    })
+      .done(function (data) {
+        if (data !== "ok") {
+          $.notify({
+            icon: "fa fa-exclamation",
+            message: "Unable to reset password. Please retry in a few minutes."
+          }, {
+            type: "warning",
+            timer: 2000,
+            placement: {
+              from: "top",
+              align: "center"
+            }
+          });
+        } else {
+          $.notify({
+            icon: "fa fa-check",
+            message: "Password changed. You will be redirected to login page in a few seconds."
+          }, {
+            type: "success",
+            timer: 4000,
+            placement: {
+              from: "top",
+              align: "center"
+            }
+          });
+          setTimeout(function () {
+            window.location.replace('/login.php');
+          }, 4000);
+        }
+      })
+      .fail(failedRequest);
+  });
+  $("#updateProfile").submit(function (e) {
+    e.preventDefault(e);
+    $('.spinning-modal-lg').modal('show');
+    var request = $.ajax({
+      type: "POST",
+      url: '/ajax/updateProfile.php',
+      data: $(this).serialize()
+    })
+      .done(function (data) {
+        if (data !== "ok") {
+          $.notify({
+            icon: "fa fa-exclamation",
+            message: "Error updating profile: " + data
+          }, {
+            type: "warning",
+            timer: 2000,
+            placement: {
+              from: "top",
+              align: "center"
+            }
+          });
+        } else {
+          $.notify({
+            icon: "fa fa-check",
+            message: "Profile updated."
+          }, {
+            type: "success",
+            timer: 4000,
+            placement: {
+              from: "top",
+              align: "center"
+            }
+          });
+        }
+      })
+      .fail(failedRequest)
+      .always(hideModal);
+  });
+  $("#changePass").submit(function (e) {
+    e.preventDefault(e);
+    $('.spinning-modal-lg').modal('show');
+    if (validatePassword()) {
+      var request = $.ajax({
+        type: "POST",
+        url: '/ajax/changePass.php',
+        data: $(this).serialize()
+      })
+        .done(function (data) {
+          if (data !== "ok") {
+            $.notify({
+              icon: "fa fa-exclamation",
+              message: "Unable to reset password. Please retry in a few minutes."
+            }, {
+              type: "warning",
+              timer: 2000,
+              placement: {
+                from: "top",
+                align: "center"
+              }
+            });
+          } else {
+            $.notify({
+              icon: "fa fa-check",
+              message: "Password changed. You will be redirected to login page in a few seconds."
+            }, {
+              type: "success",
+              timer: 4000,
+              placement: {
+                from: "top",
+                align: "center"
+              }
+            });
+            setTimeout(function () {
+              window.location.replace('/login.php');
+            }, 4000);
+          }
+        })
+        .fail(failedRequest)
+        .always(hideModal);
+    }
+  });
+  $('.video').click(function () {
+    $url = this.href;
+    $(this).closest(".custom-control").find('.check').removeClass('fa-circle-xmark check-error').addClass('fa-circle-check check-correct');
+    $.ajax({
+      type: "POST",
+      url: 'ajax/accessLinkVideo.php'
+    }).done(function (data) {
+      if (data == 'ok') {
+      }
+    })
+  })
+  $('.linkDownloadTemplate').click(function () {
+    $(this).closest(".custom-control").find('.check').removeClass('fa-circle-xmark check-error').addClass('fa-circle-check check-correct');
+  });
+  function confirmCard(data) {
+    stripe.confirmCardPayment(data.clientSecret, {
+      setup_future_usage: 'off_session'
+    })
+      .then(function (result) {
+        var error = result.error;
+        var paymentIntent = result.paymentIntent;
+        if (error) {
+          hideModal();
+        } else if (paymentIntent.status === 'succeeded') {
+          updateComplete();
+        } else {
+          hideModal();
+        }
+      });
+  }
+
+  function updateComplete() {
+    hideModal();
+    $.notify({
+      icon: "fa fa-check",
+      message: "Plan updated. Redirecting to dashboard..."
+    }, {
+      type: "success",
+      timer: 4000,
+      placement: {
+        from: "top",
+        align: "center"
+      }
+    });
+    setTimeout(function () {
+      window.location.replace('/');
+    }, 4000);
+  }
+
+  $("#cancelSubs").submit(function (e) {
+    e.preventDefault(e);
+    $('.spinning-modal-lg').modal('show');
+    var request = $.ajax({
+      type: "POST",
+      url: '/ajax/cancelSubscription.php',
+      data: $(this).serialize()
+    })
+      .done(function (data) {
+        if (data !== "ok") {
+          $.notify({
+            icon: "fa fa-exclamation",
+            message: "Error cancelling subscription: " + data
+          }, {
+            type: "warning",
+            timer: 2000,
+            placement: {
+              from: "top",
+              align: "center"
+            }
+          });
+        } else {
+          $.notify({
+            icon: "fa fa-check",
+            message: "Subscription Cancelled. Redirecting to dashboard..."
+          }, {
+            type: "success",
+            timer: 4000,
+            placement: {
+              from: "top",
+              align: "center"
+            }
+          });
+          setTimeout(function () {
+            window.location.replace('/');
+          }, 4000);
+        }
+      })
+      .fail(failedRequest)
+      .always(hideModal);
+  });
+  $("#proSubs").submit(function (e) {
+    e.preventDefault(e);
+    $("#modalConfirmSubscribeAmz").modal("show");
+  });
+  $("#confirmSubscribeAmz").click(function () {
+    $("#modalConfirmSubscribeAmz").modal("hide");
+    $('.spinning-modal-lg').modal('show');
+    var request = $.ajax({
+      type: "POST",
+      url: '/ajax/proTemplateSubs.php',
+      data: $(this).serialize(),
+      dataType: 'json'
+    })
+      .done(function (data) {
+        if (!data.success) {
+          stripe.confirmCardPayment(data.client_secret)
+            .then(function (result) {
+              var error = result.error;
+              var paymentIntent = result.paymentIntent;
+              if (error) {
+                hideModal();
+                $.notify({
+                  icon: "fa fa-exclamation",
+                  message: "Error subscribing to Amazon Template Package"
+                }, {
+                  type: "warning",
+                  timer: 2000,
+                  placement: {
+                    from: "top",
+                    align: "center"
+                  }
+                });
+              } else if (paymentIntent.status === 'succeeded') {
+                completeProSubs(data);
+              }
+            })
+        } else {
+          completeProSubs(data);
+        }
+      })
+      .fail(failedRequest);
+  });
+  function completeProSubs(data) {
+    hideModal();
+    var item = { "id": 'ProTemplates', "name": "ProTemplates", "quantity": 1, "price": data.proTemplatePrice };
+    var gObject = {
+      "transaction_id": window.email,
+      "currency": "USD",
+      "affiliation": "Post Subs. Purchase",
+      "items": [item]
+    };
+    gObject.event_callback = createFunctionWithTimeout(function () {
+      $.notify({
+        icon: "fa fa-check",
+        message: "Subscription done. Redirecting to PRO Spreadsheets page..."
+      }, {
+        type: "success",
+        timer: 4000,
+        placement: {
+          from: "top",
+          align: "center"
+        }
+      });
+      setTimeout(function () {
+        window.location.replace('prosheets.php');
+      }, 4000);
+    }, 2000);
+    gtag('event', 'purchase', gObject);
+  }
+  $("#dfySubs").submit(function (e) {
+    e.preventDefault(e);
+    $("#modalConfirmSubscribeDfy").modal("show");
+  });
+  $("#confirmSubscribeDfy").click(function () {
+    $("#modalConfirmSubscribeDfy").modal("hide");
+    $('.spinning-modal-lg').modal('show');
+    var request = $.ajax({
+      type: "POST",
+      url: '/ajax/dfySubs.php',
+      data: $(this).serialize(),
+      dataType: 'json'
+    })
+      .done(function (data) {
+        if (!data.success) {
+          stripe.confirmCardPayment(data.client_secret)
+            .then(function (result) {
+              var error = result.error;
+              var paymentIntent = result.paymentIntent;
+              if (error) {
+                hideModal();
+                $.notify({
+                  icon: "fa fa-exclamation",
+                  message: "Error purchasing Support + Warranty Package"
+                }, {
+                  type: "warning",
+                  timer: 2000,
+                  placement: {
+                    from: "top",
+                    align: "center"
+                  }
+                });
+              } else if (paymentIntent.status === 'succeeded') {
+                completeDfySubs(data);
+              }
+            })
+        } else {
+          completeDfySubs(data);
+        }
+      })
+      .fail(failedRequest)
+  });
+  function completeDfySubs(data) {
+    hideModal();
+    var item = { "id": 'Support_Warranty', "name": "Support_Warranty", "quantity": 1, "price": data.dfyPrice };
+    var gObject = {
+      "transaction_id": window.email,
+      "currency": "USD",
+      "affiliation": "Post Subs. Purchase",
+      "items": [item]
+    };
+    gObject.event_callback = createFunctionWithTimeout(function () {
+      $.notify({
+        icon: "fa fa-check",
+        message: "Subscription done. Reloading page..."
+      }, {
+        type: "success",
+        timer: 4000,
+        placement: {
+          from: "top",
+          align: "center"
+        }
+      });
+      setTimeout(function () {
+        window.location.reload();
+      }, 4000);
+    }, 2000);
+    gtag('event', 'purchase', gObject);
+  }
+  $("#premiumSubs").submit(function (e) {
+    e.preventDefault(e);
+    $('#modalConfirmSubscribePre').modal('show');
+  });
+
+  $('#confirmSubscribePre').click(function () {
+    $('#modalConfirmSubscribePre').modal('hide');
+    $('.spinning-modal-lg').modal('show');
+    var request = $.ajax({
+      type: "POST",
+      url: '/ajax/premiumSubs.php',
+      data: $(this).serialize(),
+      dataType: 'json'
+    })
+      .done(function (data) {
+        if (!data.result) {
+          $.notify({
+            icon: "fa fa-exclamation",
+            message: "Error purchasing Reimbursement Data Package: " + data
+          }, {
+            type: "warning",
+            timer: 2000,
+            placement: {
+              from: "top",
+              align: "center"
+            }
+          });
+        } else {
+          var price = $('#premiumSubs input[name="price"]').val();
+          var item = { "id": 'Premium_Subscription', "name": "Premium_Subscription", "quantity": 1, "price": price };
+          var gObject = {
+            "transaction_id": window.email,
+            "currency": "USD",
+            "affiliation": "Post Subs. Purchase",
+            "items": [item]
+          };
+          gObject.event_callback = createFunctionWithTimeout(function () {
+            $.notify({
+              icon: "fa fa-check",
+              message: data.msg
+            }, {
+              type: "success",
+              timer: 4000,
+              placement: {
+                from: "top",
+                align: "center"
+              }
+            });
+            setTimeout(function () {
+              window.location.reload();
+            }, 4000);
+          }, 2000);
+          gtag('event', 'purchase', gObject);
+        }
+      })
+      .fail(failedRequest)
+      .always(hideModal);
+  })
+
+  $('.collapse-action').on('hide.bs.collapse', function () {
+    var element = $(this).data("invoice");
+    $("#collapsedisplay" + element).removeClass("nc-stre-down");
+    $("#collapsedisplay" + element).addClass("nc-stre-right");
+  });
+  $('.collapse-action').on('show.bs.collapse', function () {
+    var element = $(this).data("invoice");
+    $("#collapsedisplay" + element).removeClass("nc-stre-right");
+    $("#collapsedisplay" + element).addClass("nc-stre-down");
+  });
+  $('a[rel=popover]').popover({
+    html: true,
+    trigger: 'hover',
+    offset: -275,
+    placement: 'bottom',
+    content: function () { return '<img width="550px" src="' + $(this).data('img') + '" />'; }
+  });
+  $(".remove-email").click(function (e) {
+    email = $(this).data('email');
+    e.preventDefault(e);
+    $('.spinning-modal-lg').modal('show');
+    var request = $.ajax({
+      type: "POST",
+      url: '/ajax/emailDelete.php',
+      data: { 'email': email }
+    })
+      .done(function (data) {
+        if (data !== "ok") {
+          $.notify({
+            icon: "fa fa-exclamation",
+            message: "Error deleting email: " + data
+          }, {
+            type: "warning",
+            timer: 2000,
+            placement: {
+              from: "top",
+              align: "center"
+            }
+          });
+        } else {
+          $.notify({
+            icon: "fa fa-check",
+            message: "Email Deleted"
+          }, {
+            type: "success",
+            timer: 4000,
+            placement: {
+              from: "top",
+              align: "center"
+            }
+          });
+          $('[data-row-email="' + email + '"').remove();
+        }
+      })
+      .fail(failedRequest)
+      .always(hideModal);
+  });
+  $(document).on("click", ".remove-key", function (e) {
+    key = $(this).data('key');
+    e.preventDefault(e);
+    $('.spinning-modal-lg').modal('show');
+    var request = $.ajax({
+      type: "POST",
+      url: '/ajax/deleteKey.php',
+      data: { 'key': key }
+    })
+      .done(function (data) {
+        if (data !== "ok") {
+          $.notify({
+            icon: "fa fa-exclamation",
+            message: "Error deleting key: " + data
+          }, {
+            type: "warning",
+            timer: 2000,
+            placement: {
+              from: "top",
+              align: "center"
+            }
+          });
+        } else {
+          $.notify({
+            icon: "fa fa-check",
+            message: "Key Deleted"
+          }, {
+            type: "success",
+            timer: 4000,
+            placement: {
+              from: "top",
+              align: "center"
+            }
+          });
+          $('[data-row-key="' + key + '"').remove();
+        }
+      })
+      .fail(failedRequest)
+      .always(hideModal);
+  });
+  $(".add-key").click(function (e) {
+    e.preventDefault(e);
+    $('.spinning-modal-lg').modal('show');
+    var request = $.ajax({
+      type: "POST",
+      url: '/ajax/addKey.php',
+    })
+      .done(function (result) {
+        data = JSON.parse(result);
+        if (data.status !== "ok") {
+          $.notify({
+            icon: "fa fa-exclamation",
+            message: "Error adding key: " + data.message
+          }, {
+            type: "warning",
+            timer: 2000,
+            placement: {
+              from: "top",
+              align: "center"
+            }
+          });
+        } else {
+          $.notify({
+            icon: "fa fa-check",
+            message: "Key Added"
+          }, {
+            type: "success",
+            timer: 4000,
+            placement: {
+              from: "top",
+              align: "center"
+            }
+          });
+          tr = $('<tr data-row-key="' + data.public + '">').append(
+            $('<td>').text(data.public),
+            $('<td>').text(data.private),
+            $('<td>').text("NOW"),
+            $('<td class="td-actions">').append(
+              $('<button type="button" rel="tooltip" title="" class="btn btn-danger btn-simple btn-link remove-key" data-original-title="Remove" data-key="' + data.public + '">').append('<i class="fa fa-times fa-2x">').tooltip()
+            )
+          ).prependTo('#table-keys');
+        }
+      })
+      .fail(failedRequest)
+      .always(hideModal);
+  });
+  $("#updateEmail").submit(function (e) {
+    e.preventDefault(e);
+    $('.spinning-modal-lg').modal('show');
+    $.ajax({
+      type: "POST",
+      url: '/ajax/emailUpdate.php',
+      data: $(this).serialize()
+    })
+      .done(function (data) {
+        if (data !== "ok") {
+          $.notify({
+            icon: "fa fa-exclamation",
+            message: "Error updating email list: " + data
+          }, {
+            type: "warning",
+            timer: 2000,
+            placement: {
+              from: "top",
+              align: "center"
+            }
+          });
+        } else {
+          $.notify({
+            icon: "fa fa-check",
+            message: "Email Updated."
+          }, {
+            type: "success",
+            timer: 2000,
+            placement: {
+              from: "top",
+              align: "center"
+            }
+          });
+          setTimeout(function () {
+            window.location.replace('emails.php');
+          }, 2000);
+        }
+      })
+      .fail(failedRequest)
+      .always(hideModal);
+  });
+
+  $("#downStatusExit").click(function (e) {
+    e.preventDefault(e);
+    $('#downStatus-modal').modal('hide');
+  });
+
+});
+
+function searchToObject() {
+  var pairs = window.location.search.substring(1).split("&"),
+     obj = {},
+     pair,
+     i;
+
+  for ( i in pairs ) {
+    if ( pairs[i] === "" ) continue;
+
+    pair = pairs[i].split("=");
+    obj[ decodeURIComponent( pair[0] ) ] = decodeURIComponent( pair[1] );
+  }
+
+  return obj;
+}
+$(".DownStatus").click(function (e) {
+  var request = $.ajax({
+    type: "POST",
+    url: '/ajax/downStatus.php',
+    data: "sellerId=" + $(this).data('sellerid')
+  })
+    .done(function (data) {
+      var response = JSON.parse(data);
+
+      $('#downStatusSeller').html(response['sellerId']);
+      $('#lastUpdateOrderItem').html(response['lastUpdateOrderItem']);
+      $('#subscriptionDate').html(response['subscriptionDate']);
+      $('#histDetailedOrder').html(response['lastUpdateOrderItemBG'] + " - " + response['hd_percent']);
+
+      $('#downStatus-modal').modal('show');
+    })
+    .fail(failedRequest)
+});
+
+function failedRequest(msg) {
+  hideModal();
+  var text = msg.responseText;
+  var msg = text;
+  try {
+    var data = JSON.parse(text);
+    if (data && data.error_msg) {
+      msg = data.error_msg;
+    }
+  } catch (e) { }
+  $.notify({
+    icon: "fa fa-exclamation",
+    message: msg || "Unable to communicate with the server. Please retry in a few minutes."
+  }, {
+    type: "warning",
+    timer: 2000,
+    placement: {
+      from: "top",
+      align: "center"
+    }
+  });
+}
+
+function validatePassword() {
+  var new1 = document.getElementById("new-password");
+  var new2 = document.getElementById("repeat");
+
+  if (new1.value != new2.value) {
+    new2.setCustomValidity("Passwords Don't Match");
+    return false;
+  } else {
+    new2.setCustomValidity("");
+    return true
+  }
+}
+
+function hideModal() {
+  if (!modalShown) {
+    setTimeout(hideModal, 100);
+  } else {
+    $('.spinning-modal-lg').modal('hide');
+  }
+}
+
+function subscribeErrorHandler(jqXHR, textStatus, errorThrown) {
+  var resp, errMsg;
+  try {
+    resp = JSON.parse(jqXHR.responseText);
+    errMsg = resp.error_msg;
+  } catch (err) {
+    errMsg = jqXHR.responseText;
+  }
+  hideModal();
+  $.notify({
+    icon: "fa fa-exclamation",
+    message: errMsg
+  }, {
+    type: "warning",
+    timer: 4000,
+    placement: {
+      from: "top",
+      align: "center"
+    }
+  });
+}
+
+function createFunctionWithTimeout(callback, optTimeout) {
+  var called = false;
+  function fn() {
+    if (!called) {
+      called = true;
+      callback();
+    }
+  }
+  setTimeout(fn, optTimeout || 1000);
+  return fn;
+}

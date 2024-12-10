@@ -1,0 +1,23 @@
+function copyToClipboard() {
+   const element = document.querySelector('#agencyId');
+   const storage = document.createElement('textarea');
+   storage.value = element.innerHTML;
+   element.appendChild(storage);
+
+   storage.select();
+   storage.setSelectionRange(0, 99999);
+   document.execCommand('copy');
+   element.removeChild(storage);
+
+   $.notify({
+      icon: "fa fa-check",
+      message: "Copied to clipboard."
+   }, {
+      type: "success",
+      timeout: 3000,
+      placement: {
+         from: "top",
+         align: "center"
+      }
+   });
+}

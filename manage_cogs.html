@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://app-dev.gorillaroi.com/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="https://app-dev.gorillaroi.com/assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Gorilla ROI Software</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" name="viewport">
+    <!--     Fonts and icons     -->
+    <link href="./Gorilla ROI Software_files/css" rel="stylesheet">
+    <link rel="stylesheet" href="./Gorilla ROI Software_files/font-awesome.min.css">
+    <link rel="stylesheet" href="./Gorilla ROI Software_files/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <!-- CSS Files -->
+    <link href="./Gorilla ROI Software_files/bootstrap.min.css" rel="stylesheet">
+    <link href="./Gorilla ROI Software_files/light-bootstrap-dashboard.css" rel="stylesheet">    
+    <link href="./Gorilla ROI Software_files/custom.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar ms-sidebar" data-color="purple">
+            <div class="sidebar-wrapper d-flex flex-column justify-content-between pb-0">
+                <div>
+                    <div class="logo bg-white">
+                        <a href="https://www.gorillaroi.com/">
+                            <img src="images/gorilla_header_logo.png" class="img-fluid" alt="Logo">
+                        </a>
+                    </div>
+                    <ul class="nav m-0">
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center m-0" href="index.html">
+                                <svg class="mr-3" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 1H6C4.6744 1.00165 3.40356 1.55092 2.46622 2.52731C1.52888 3.50371 1.00159 4.82751 1 6.20833L1 18.7083C1.00159 20.0892 1.52888 21.413 2.46622 22.3894C3.40356 23.3657 4.6744 23.915 6 23.9167H20C21.3256 23.915 22.5964 23.3657 23.5338 22.3894C24.4711 21.413 24.9984 20.0892 25 18.7083V6.20833C24.9984 4.82751 24.4711 3.50371 23.5338 2.52731C22.5964 1.55092 21.3256 1.00165 20 1ZM6 3.08333H20C20.7956 3.08333 21.5587 3.41257 22.1213 3.99862C22.6839 4.58468 23 5.37953 23 6.20833V7.25H3V6.20833C3 5.37953 3.31607 4.58468 3.87868 3.99862C4.44129 3.41257 5.20435 3.08333 6 3.08333ZM20 21.8333H6C5.20435 21.8333 4.44129 21.5041 3.87868 20.918C3.31607 20.332 3 19.5371 3 18.7083V9.33333H23V18.7083C23 19.5371 22.6839 20.332 22.1213 20.918C21.5587 21.5041 20.7956 21.8333 20 21.8333ZM20 13.5C20 13.7763 19.8946 14.0412 19.7071 14.2366C19.5196 14.4319 19.2652 14.5417 19 14.5417H7C6.73478 14.5417 6.48043 14.4319 6.29289 14.2366C6.10536 14.0412 6 13.7763 6 13.5C6 13.2237 6.10536 12.9588 6.29289 12.7634C6.48043 12.5681 6.73478 12.4583 7 12.4583H19C19.2652 12.4583 19.5196 12.5681 19.7071 12.7634C19.8946 12.9588 20 13.2237 20 13.5ZM16 17.6667C16 17.9429 15.8946 18.2079 15.7071 18.4032C15.5196 18.5986 15.2652 18.7083 15 18.7083H7C6.73478 18.7083 6.48043 18.5986 6.29289 18.4032C6.10536 18.2079 6 17.9429 6 17.6667C6 17.3904 6.10536 17.1254 6.29289 16.9301C6.48043 16.7347 6.73478 16.625 7 16.625H15C15.2652 16.625 15.5196 16.7347 15.7071 16.9301C15.8946 17.1254 16 17.3904 16 17.6667ZM4 5.16667C4 4.96064 4.05865 4.75925 4.16853 4.58795C4.27841 4.41665 4.43459 4.28313 4.61732 4.20429C4.80004 4.12545 5.00111 4.10482 5.19509 4.14502C5.38907 4.18521 5.56725 4.28442 5.70711 4.4301C5.84696 4.57578 5.9422 4.76138 5.98079 4.96345C6.01937 5.16551 5.99957 5.37496 5.92388 5.56529C5.84819 5.75563 5.72002 5.91832 5.55557 6.03278C5.39112 6.14724 5.19778 6.20833 5 6.20833C4.73478 6.20833 4.48043 6.09859 4.29289 5.90324C4.10536 5.70789 4 5.44293 4 5.16667ZM7 5.16667C7 4.96064 7.05865 4.75925 7.16853 4.58795C7.27841 4.41665 7.43459 4.28313 7.61732 4.20429C7.80004 4.12545 8.00111 4.10482 8.19509 4.14502C8.38907 4.18521 8.56725 4.28442 8.70711 4.4301C8.84696 4.57578 8.9422 4.76138 8.98079 4.96345C9.01937 5.16551 8.99957 5.37496 8.92388 5.56529C8.84819 5.75563 8.72002 5.91832 8.55557 6.03278C8.39112 6.14724 8.19778 6.20833 8 6.20833C7.73478 6.20833 7.48043 6.09859 7.29289 5.90324C7.10536 5.70789 7 5.44293 7 5.16667ZM10 5.16667C10 4.96064 10.0586 4.75925 10.1685 4.58795C10.2784 4.41665 10.4346 4.28313 10.6173 4.20429C10.8 4.12545 11.0011 4.10482 11.1951 4.14502C11.3891 4.18521 11.5673 4.28442 11.7071 4.4301C11.847 4.57578 11.9422 4.76138 11.9808 4.96345C12.0194 5.16551 11.9996 5.37496 11.9239 5.56529C11.8482 5.75563 11.72 5.91832 11.5556 6.03278C11.3911 6.14724 11.1978 6.20833 11 6.20833C10.7348 6.20833 10.4804 6.09859 10.2929 5.90324C10.1054 5.70789 10 5.44293 10 5.16667Z" fill="currentColor"/>
+                                </svg>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center m-0" href="install_guide.html">
+                                <svg class="mr-3" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_203_4)">
+                                        <path d="M17 3C17 1.346 15.654 0 14 0H4C2.346 0 1 1.346 1 3V20.5C1 22.43 2.57 24 4.5 24H17C18.654 24 20 22.654 20 21V18H17V3ZM18 20V21C18 21.552 17.552 22 17 22H7.662C7.879 21.545 8 21.036 8 20.5V20H18ZM6 18V20.5C6 21.327 5.327 22 4.5 22C3.673 22 3 21.327 3 20.5V3C3 2.448 3.448 2 4 2H14C14.552 2 15 2.448 15 3V18H6ZM22 0C20.346 0 19 1.346 19 3V15.414L22 18.414L25 15.414V3C25 1.346 23.654 0 22 0ZM23 14.586L22 15.586L21 14.586V3C21 2.448 21.448 2 22 2C22.552 2 23 2.448 23 3V14.586ZM9.602 4.293L11.016 5.707L8.189 8.534C7.879 8.844 7.472 8.999 7.065 8.999C6.658 8.999 6.251 8.844 5.941 8.534L4.294 6.887L5.708 5.473L7.065 6.83L9.602 4.293ZM9.602 10.293L11.016 11.707L8.189 14.534C7.879 14.844 7.472 14.999 7.065 14.999C6.658 14.999 6.251 14.844 5.941 14.534L4.294 12.887L5.708 11.473L7.065 12.83L9.602 10.293Z" fill="currentColor"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_203_4">
+                                            <rect width="24" height="24" fill="white" transform="translate(1)"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                Install Checklist
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center m-0" href="basic_spreadsheets.html">
+                                <svg class="mr-3" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17 15H14V13C14 11.897 13.103 11 12 11H9C7.897 11 7 11.897 7 13V19C7 20.103 7.897 21 9 21H17C18.103 21 19 20.103 19 19V17C19 15.897 18.103 15 17 15ZM12 19H9V17H12V19ZM12 15H9V13H12V15ZM17 19H14V17H17V19ZM20.949 6.535L17.465 3.051C16.143 1.729 14.385 1 12.515 1H8C5.243 1 3 3.243 3 6V20C3 22.757 5.243 25 8 25H18C20.757 25 23 22.757 23 20V11.485C23 9.615 22.271 7.857 20.949 6.535ZM19.535 7.949C19.853 8.267 20.122 8.62 20.341 9H16C15.448 9 15 8.552 15 8V3.659C15.38 3.877 15.733 4.147 16.051 4.465L19.535 7.949ZM21 20C21 21.654 19.654 23 18 23H8C6.346 23 5 21.654 5 20V6C5 4.346 6.346 3 8 3H12.515C12.678 3 12.84 3.008 13 3.023V8C13 9.654 14.346 11 16 11H20.977C20.992 11.16 21 11.322 21 11.485V20Z" fill="currentColor"/>
+                                </svg>
+                                Basic Spreadsheets
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center m-0" href="pro_spreadsheets.html">
+                                <svg class="mr-3" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19 1H7C4.24 1 2 3.24 2 6V20C2 22.76 4.24 25 7 25H19C21.76 25 24 22.76 24 20V6C24 3.24 21.76 1 19 1ZM22 6V12H14V3H19C20.65 3 22 4.35 22 6ZM7 3H12V12H4V6C4 4.35 5.35 3 7 3ZM4 20V14H12V23H7C5.35 23 4 21.65 4 20ZM19 23H14V14H22V20C22 21.65 20.65 23 19 23Z" fill="currentColor"/>
+                                </svg>
+                                Pro Spreadsheets
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link d-flex align-items-center m-0" href="manage_cogs.html">
+                                <svg class="mr-3" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_203_15)">
+                                        <path d="M25 13C25 19.617 19.617 25 13 25C6.383 25 1 19.617 1 13C1 6.383 6.383 1 13 1C13.553 1 14 1.447 14 2C14 2.553 13.553 3 13 3C7.486 3 3 7.486 3 13C3 18.514 7.486 23 13 23C18.514 23 23 18.514 23 13C23 12.447 23.447 12 24 12C24.553 12 25 12.447 25 13ZM23 1H19C18.447 1 18 1.447 18 2C18 2.553 18.447 3 19 3H21.586L18.293 6.293C17.902 6.684 17.902 7.316 18.293 7.707C18.488 7.902 18.744 8 19 8C19.256 8 19.512 7.902 19.707 7.707L23 4.414V7C23 7.553 23.447 8 24 8C24.553 8 25 7.553 25 7V3C25 1.897 24.103 1 23 1ZM14 7C14 6.447 13.553 6 13 6C12.447 6 12 6.447 12 7V8C10.346 8 9 9.346 9 11C9 12.359 9.974 13.51 11.315 13.733L14.355 14.239C14.729 14.301 15 14.621 15 15C15 15.552 14.552 16 14 16H11.732C11.376 16 11.044 15.809 10.865 15.499C10.589 15.02 9.978 14.856 9.499 15.135C9.021 15.411 8.857 16.023 9.135 16.501C9.669 17.426 10.665 18 11.733 18H12.001V19C12.001 19.553 12.448 20 13.001 20C13.554 20 14.001 19.553 14.001 19V18C15.655 18 17.001 16.654 17.001 15C17.001 13.641 16.027 12.49 14.686 12.267L11.646 11.761C11.272 11.699 11.001 11.379 11.001 11C11.001 10.448 11.449 10 12.001 10H14.269C14.625 10 14.957 10.191 15.136 10.501C15.411 10.979 16.022 11.143 16.502 10.865C16.98 10.589 17.144 9.977 16.866 9.499C16.332 8.574 15.336 8 14.268 8H14V7Z" fill="currentColor"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_203_15">
+                                            <rect width="24" height="24" fill="white" transform="translate(1 1)"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                Manage COGS
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center m-0" href="seller_account.html">
+                                <svg class="mr-3" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_204_18)">
+                                        <path d="M24.978 17.306C24.841 18.265 24.072 19 23.142 19H22.523C21.497 19 20.666 18.105 20.666 17C20.666 18.105 19.835 19 18.809 19H18.19C17.164 19 16.333 18.105 16.333 17C16.333 18.105 15.502 19 14.476 19H13.857C12.928 19 12.158 18.265 12.021 17.306C11.993 17.107 12.039 16.903 12.116 16.717L12.471 15.856C12.934 14.733 14.029 14 15.244 14H21.753C22.968 14 24.063 14.733 24.526 15.856L24.881 16.717C24.958 16.903 25.005 17.107 24.976 17.306H24.978ZM23 20C22.447 20 22 20.448 22 21V22C22 22.551 21.552 23 21 23H16C15.448 23 15 22.551 15 22V21C15 20.448 14.553 20 14 20C13.447 20 13 20.448 13 21V22C13 23.654 14.346 25 16 25H21C22.654 25 24 23.654 24 22V21C24 20.448 23.553 20 23 20ZM3 7C3 3.691 5.691 1 9 1C12.309 1 15 3.691 15 7C15 10.309 12.309 13 9 13C5.691 13 3 10.309 3 7ZM5 7C5 9.206 6.794 11 9 11C11.206 11 13 9.206 13 7C13 4.794 11.206 3 9 3C6.794 3 5 4.794 5 7ZM9 15C4.589 15 1 18.589 1 23V24C1 24.552 1.447 25 2 25C2.553 25 3 24.552 3 24V23C3 19.691 5.691 17 9 17C9.553 17 10 16.552 10 16C10 15.448 9.553 15 9 15Z" fill="currentColor"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_204_18">
+                                            <rect width="24" height="24" fill="white" transform="translate(1 1)"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                Seller Accounts
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center m-0" href="download_status.html">
+                                <svg class="mr-3" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18.975 8.14152C18.643 8.07552 18.372 7.86852 18.233 7.57252C16.681 4.30152 13.09 2.47252 9.498 3.13452C6.226 3.73452 3.661 6.34652 3.114 9.63552C2.952 10.6065 2.964 11.5785 3.147 12.5255C3.207 12.8345 3.074 13.1785 2.801 13.4265C1.656 14.4675 1 15.9505 1 17.4965C1 20.5285 3.467 22.9965 6.5 22.9965H17.5C21.636 22.9965 25 19.6325 25 15.4965C25 11.9315 22.466 8.83852 18.974 8.14252L18.975 8.14152ZM17.501 20.9955H6.501C4.571 20.9955 3.001 19.4255 3.001 17.4955C3.001 16.5125 3.419 15.5675 4.147 14.9055C4.933 14.1905 5.302 13.1325 5.11 12.1425C4.972 11.4305 4.964 10.6975 5.086 9.96152C5.489 7.53952 7.451 5.54052 9.857 5.09952C10.242 5.02952 10.625 4.99552 11.002 4.99552C13.314 4.99552 15.408 6.28452 16.424 8.42952C16.838 9.30152 17.624 9.91052 18.582 10.1025C21.141 10.6135 22.999 12.8805 22.999 15.4965C22.999 18.5285 20.532 20.9965 17.499 20.9965L17.501 20.9955ZM16.8884 13.4285C17.2794 13.8195 17.2794 14.4515 16.8884 14.8425L14.1814 17.5495C13.7944 17.9365 13.2854 18.1315 12.7764 18.1335L12.7674 18.1355L12.7584 18.1335C12.2494 18.1315 11.7404 17.9365 11.3534 17.5495L8.64643 14.8425C8.25543 14.4515 8.25543 13.8195 8.64643 13.4285C9.03743 13.0375 9.66943 13.0375 10.0604 13.4285L11.7674 15.1355V10.1355C11.7674 9.58252 12.2154 9.13552 12.7674 9.13552C13.3194 9.13552 13.7674 9.58252 13.7674 10.1355V15.1355L15.4744 13.4285C15.8654 13.0375 16.4974 13.0375 16.8884 13.4285Z" fill="currentColor"/>
+                                </svg>
+                                Download Status
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="ms-sidebar-cta mt-4">
+                        <h4 class="ms-font-17 font-weight-bold mt-0">Need help to setup of all Gorilla ROI</h4>
+                        <p class="ms-font-13">Let our spreadsheet experts set it up for you</p>
+                        <a class="ms-btn ms-green-btn d-inline-flex align-items-center" target="_blank" href="https://www.gorillaroi.com/setup-package/">Details
+                            <svg class="ms-right-icon" width="12" height="15" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.19604 1.39417L5.94077 6.1389L1.19604 10.8836" stroke="currentColor" stroke-width="1.5"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="ms-sidebar-footer ms-font-500 mt-5">© 2024 Gorilla ROI - All Rights Reserved</div>
+            </div>
+        </div>
+
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg ms-navbar" color-on-scroll="500">
+                <div class="container-fluid">
+                    <a class="navbar-brand">Manage COGS</a>
+                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:void(0)">Support</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:void(0)">Contact</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link align-items-center" href="javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img src="images/user_img.png" class="img-fluid mr-2" alt="User Image">
+                                    <svg width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.428955 1.27351L5.12665 5.97121L9.82434 1.27351" stroke="currentColor"/>
+                                    </svg>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="profile.html">Your Profile</a>
+                                    <a class="dropdown-item" href="change_password.html">Change Password</a>
+                                    <a class="dropdown-item" href="billing_history.html">Billing History</a>
+                                    <a class="dropdown-item" href="update_credit_card.html">Update Credit Card</a>
+                                    <a class="dropdown-item" href="plan.html">Change Plan</a>
+                                    <a class="dropdown-item" href="api_keys.html">API Keys</a>
+                                    <a class="dropdown-item" href="cancel_account.html">Cancel Account</a>
+                                    <div class="divider"></div>
+                                    <a class="dropdown-item" href="#.">Log out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="ms-box bg-white ms-nav-tabs">
+                                <nav>
+                                    <div class="nav nav-tabs pt-1 pl-1 pr-1" id="nav-tab" role="tablist">
+                                        <a class="nav-item nav-link d-flex align-items-center active" id="nav-manage_cogs-tab" data-toggle="tab" href="#nav-manage_cogs" role="tab" aria-controls="nav-manage_cogs" aria-selected="true">
+                                            <svg class="mr-3" width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M0.766479 3.64098H2.86357C3.02808 4.24629 3.38721 4.78065 3.88553 5.16162C4.38386 5.54259 4.99371 5.74899 5.62098 5.74899C6.24825 5.74899 6.85809 5.54259 7.35642 5.16162C7.85475 4.78065 8.21387 4.24629 8.37839 3.64098H17.629C17.8323 3.64098 18.0273 3.56022 18.171 3.41648C18.3148 3.27274 18.3955 3.07778 18.3955 2.8745C18.3955 2.67121 18.3148 2.47626 18.171 2.33251C18.0273 2.18877 17.8323 2.10802 17.629 2.10802H8.37839C8.21387 1.5027 7.85475 0.968343 7.35642 0.587375C6.85809 0.206406 6.24825 0 5.62098 0C4.99371 0 4.38386 0.206406 3.88553 0.587375C3.38721 0.968343 3.02808 1.5027 2.86357 2.10802H0.766479C0.563196 2.10802 0.368239 2.18877 0.224497 2.33251C0.0807539 2.47626 0 2.67121 0 2.8745C0 3.07778 0.0807539 3.27274 0.224497 3.41648C0.368239 3.56022 0.563196 3.64098 0.766479 3.64098ZM5.62059 1.53316C5.88589 1.53316 6.14522 1.61183 6.3658 1.75921C6.58638 1.9066 6.75831 2.11609 6.85983 2.36119C6.96135 2.60629 6.98792 2.87598 6.93616 3.13618C6.8844 3.39637 6.75665 3.63538 6.56906 3.82297C6.38147 4.01056 6.14247 4.13831 5.88228 4.19006C5.62208 4.24182 5.35238 4.21526 5.10729 4.11373C4.86219 4.01221 4.6527 3.84029 4.50531 3.6197C4.35792 3.39912 4.27925 3.13979 4.27925 2.8745C4.27966 2.51888 4.42111 2.17794 4.67257 1.92647C4.92403 1.67501 5.26497 1.53356 5.62059 1.53316Z" fill="currentColor"/>
+                                                <path d="M17.629 8.43147H15.5319C15.3677 7.82602 15.0087 7.29147 14.5104 6.91034C14.0121 6.52921 13.4023 6.32271 12.7749 6.32271C12.1476 6.32271 11.5377 6.52921 11.0394 6.91034C10.5411 7.29147 10.1821 7.82602 10.0179 8.43147H0.766479C0.563196 8.43147 0.368239 8.51223 0.224497 8.65597C0.0807539 8.79971 0 8.99467 0 9.19795C0 9.40124 0.0807539 9.59619 0.224497 9.73994C0.368239 9.88368 0.563196 9.96443 0.766479 9.96443H10.0179C10.1821 10.5699 10.5411 11.1044 11.0394 11.4856C11.5377 11.8667 12.1476 12.0732 12.7749 12.0732C13.4023 12.0732 14.0121 11.8667 14.5104 11.4856C15.0087 11.1044 15.3677 10.5699 15.5319 9.96443H17.629C17.8323 9.96443 18.0273 9.88368 18.171 9.73994C18.3148 9.59619 18.3955 9.40124 18.3955 9.19795C18.3955 8.99467 18.3148 8.79971 18.171 8.65597C18.0273 8.51223 17.8323 8.43147 17.629 8.43147ZM12.7749 10.5393C12.5096 10.5393 12.2503 10.4606 12.0297 10.3132C11.8091 10.1658 11.6372 9.95636 11.5357 9.71126C11.4342 9.46616 11.4076 9.19647 11.4593 8.93627C11.5111 8.67608 11.6389 8.43707 11.8264 8.24948C12.014 8.06189 12.253 7.93414 12.5132 7.88239C12.7734 7.83063 13.0431 7.85719 13.2882 7.95872C13.5333 8.06024 13.7428 8.23216 13.8902 8.45274C14.0376 8.67333 14.1163 8.93266 14.1163 9.19795C14.1158 9.55357 13.9744 9.89451 13.7229 10.146C13.4715 10.3974 13.1305 10.5389 12.7749 10.5393Z" fill="currentColor"/>
+                                                <path d="M17.629 14.7549H8.37839C8.21387 14.1496 7.85475 13.6153 7.35642 13.2343C6.85809 12.8533 6.24825 12.6469 5.62098 12.6469C4.99371 12.6469 4.38386 12.8533 3.88553 13.2343C3.38721 13.6153 3.02808 14.1496 2.86357 14.7549H0.766479C0.563196 14.7549 0.368239 14.8357 0.224497 14.9794C0.0807539 15.1232 0 15.3181 0 15.5214C0 15.7247 0.0807539 15.9196 0.224497 16.0634C0.368239 16.2071 0.563196 16.2879 0.766479 16.2879H2.86357C3.02808 16.8932 3.38721 17.4276 3.88553 17.8085C4.38386 18.1895 4.99371 18.3959 5.62098 18.3959C6.24825 18.3959 6.85809 18.1895 7.35642 17.8085C7.85475 17.4276 8.21387 16.8932 8.37839 16.2879H17.629C17.8323 16.2879 18.0273 16.2071 18.171 16.0634C18.3148 15.9196 18.3955 15.7247 18.3955 15.5214C18.3955 15.3181 18.3148 15.1232 18.171 14.9794C18.0273 14.8357 17.8323 14.7549 17.629 14.7549ZM5.62059 16.8627C5.3553 16.8627 5.09597 16.7841 4.87539 16.6367C4.6548 16.4893 4.48288 16.2798 4.38136 16.0347C4.27984 15.7896 4.25327 15.5199 4.30503 15.2597C4.35678 14.9995 4.48453 14.7605 4.67212 14.5729C4.85971 14.3853 5.09872 14.2576 5.35891 14.2058C5.61911 14.1541 5.8888 14.1807 6.1339 14.2822C6.379 14.3837 6.58849 14.5556 6.73588 14.7762C6.88327 14.9968 6.96193 15.2561 6.96193 15.5214C6.96133 15.877 6.81981 16.2178 6.56839 16.4692C6.31697 16.7206 5.97615 16.8621 5.62059 16.8627Z" fill="currentColor"/>
+                                            </svg>
+                                            Manage COGS
+                                        </a>
+                                        <a class="nav-item nav-link d-flex align-items-center" id="nav-cogs_history-tab" data-toggle="tab" href="#nav-cogs_history" role="tab" aria-controls="nav-cogs_history" aria-selected="false">
+                                            <svg class="mr-3" width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M17.5634 0H11.4974C9.38421 0 7.66496 1.71925 7.66496 3.83248V14.5634C7.66496 16.6767 9.38421 18.3959 11.4974 18.3959H17.5634C19.6767 18.3959 21.3959 16.6767 21.3959 14.5634V3.83248C21.3959 1.71925 19.6767 0 17.5634 0ZM19.8629 14.5634C19.8629 15.8312 18.8312 16.8629 17.5634 16.8629H11.4974C10.2297 16.8629 9.19795 15.8312 9.19795 14.5634V3.83248C9.19795 2.5647 10.2297 1.53299 11.4974 1.53299H17.5634C18.8312 1.53299 19.8629 2.5647 19.8629 3.83248V14.5634ZM5.36547 3.06598V16.0964C5.36547 16.5195 5.02208 16.8629 4.59898 16.8629C4.17587 16.8629 3.83248 16.5195 3.83248 16.0964V3.06598C3.83248 2.64288 4.17587 2.29949 4.59898 2.29949C5.02208 2.29949 5.36547 2.64288 5.36547 3.06598ZM1.53299 5.36547V13.7969C1.53299 14.22 1.1896 14.5634 0.766496 14.5634C0.34339 14.5634 0 14.22 0 13.7969V5.36547C0 4.94237 0.34339 4.59898 0.766496 4.59898C1.1896 4.59898 1.53299 4.94237 1.53299 5.36547Z" fill="currentColor"/>
+                                            </svg>
+                                            COGS History
+                                        </a>
+                                        <a class="nav-item nav-link d-flex align-items-center" id="nav-upload_cogs-tab" data-toggle="tab" href="#nav-upload_cogs" role="tab" aria-controls="nav-upload_cogs" aria-selected="false">
+                                            <svg class="mr-3" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g clip-path="url(#clip0_246_4)">
+                                                    <path d="M6.39781 4.12897L8.71418 1.93374L8.70865 13.5121C8.70865 13.9263 9.06308 14.262 9.50029 14.262C9.93751 14.262 10.2919 13.9263 10.2919 13.5121L10.2975 1.9465L12.6028 4.13122C12.9173 4.41897 13.4184 4.41074 13.7222 4.11279C14.0185 3.82216 14.0185 3.36138 13.7222 3.07074L11.1802 0.659521C10.253 -0.219442 8.74925 -0.219899 7.82145 0.658502C7.82108 0.658853 7.82075 0.659169 7.82038 0.659521L5.27839 3.06849C4.97465 3.36644 4.98334 3.84122 5.29783 4.12897C5.60461 4.40968 6.091 4.40968 6.39781 4.12897Z" fill="currentColor"/>
+                                                    <path d="M18.2085 12.0001C17.7713 12.0001 17.4168 12.3358 17.4168 12.7501V15.75C17.4168 16.1642 17.0624 16.5 16.6252 16.5H2.37541C1.9382 16.5 1.58377 16.1642 1.58377 15.75V12.7501C1.58377 12.3358 1.22935 12.0001 0.79213 12.0001C0.354914 12.0001 0.000488281 12.3358 0.000488281 12.7501V15.75C0.000488281 16.9926 1.0638 18 2.37545 18H16.6252C17.9369 18 19.0002 16.9926 19.0002 15.75V12.7501C19.0001 12.3358 18.6457 12.0001 18.2085 12.0001Z" fill="currentColor"/>
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_246_4">
+                                                        <rect width="19" height="18" fill="white"/>
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                            Upload COGS
+                                        </a>
+                                    </div>
+                                </nav>
+                                <div class="tab-content" id="nav-tabContent">
+                                    <div class="tab-pane fade p-4 show active" id="nav-manage_cogs" role="tabpanel" aria-labelledby="nav-manage_cogs-tab">
+                                        <h3 class="ms-font-29 ms-font-600 mt-1">Manage COGS</h3>
+                                        <p class="ms-font-15 ms-font-600 mb-4 pb-2">Enter your Cost of Goods Sold information for each new SKU/ASIN and whenever your cost changes. The matching cost will be loaded in your spreadsheet formulas when you define a date. Verify the correct marketplace is used.</p>
+                                        <div class="ms-table">
+                                            <div class="ms-table-header d-flex align-items-center justify-content-between flex-column flex-md-row ms-filters">
+                                                <div class="flex-column flex-md-row">
+                                                    <select class="mt-3 mr-md-3 mb-0 my-md-3">
+                                                        <option>Select Marketplaces</option>
+                                                        <option>United States</option>
+                                                        <option>United Kingdom</option>
+                                                        <option>Australia</option>
+                                                        <option>Belgium</option>
+                                                        <option>Brazil</option>
+                                                        <option>Canada</option>
+                                                        <option>Egypt</option>
+                                                        <option>France</option>
+                                                        <option>Germany</option>
+                                                        <option>India</option>
+                                                        <option>Italy</option>
+                                                        <option>Japan</option>
+                                                        <option>Mexico</option>
+                                                        <option>Netherlands</option>
+                                                        <option>Poland</option>
+                                                        <option>Saudi Arabia</option>
+                                                        <option>Singapore</option>
+                                                        <option>Spain</option>
+                                                        <option>Sweden</option>
+                                                        <option>Turkey</option>
+                                                        <option>United Arab Emirates</option>
+                                                    </select>
+                                                    <select class="mr-md-3 my-3">
+                                                        <option>Select Status</option>
+                                                        <option>Active</option>
+                                                        <option>Inactive</option>
+                                                    </select>
+                                                    <select class="mb-3 mr-md-3 my-md-1">
+                                                        <option>Select Fulfillment</option>
+                                                        <option>FBM</option>
+                                                        <option>FBA</option>
+                                                    </select>
+                                                    <input type="text" placeholder="Type SKU or ASIN" class="ms-inner-input mb-3">
+                                                </div>
+                                                <div>
+                                                    <a class="ms-btn ms-green-btn ms-install-gorilla-btn mb-3 ml-md-3 my-md-3" href="#.">Export COGS
+                                                        <!-- <svg class="ms-right-icon" width="12" height="15" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M1.19604 1.39417L5.94077 6.1389L1.19604 10.8836" stroke="currentColor" stroke-width="1.5"></path>
+                                                        </svg> -->
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="ms-table-responsive ms-manage-cogs-table">
+                                                <table class="w-100">
+                                                    <tr class="align-baseline">
+                                                        <th>#</th>
+                                                        <th>Seller</th>
+                                                        <th>Marketplace</th>
+                                                        <th>SKU</th>
+                                                        <th>ASIN</th>
+                                                        <th>Name</th>
+                                                        <th>Current Cost</th>
+                                                        <th>Add/edit</th>
+                                                        <th>Currency</th>
+                                                        <th>Cost Date</th>
+                                                    </tr>
+                                                    <tr class="align-baseline">
+                                                        <td>1</td>
+                                                        <td>OAH</td>
+                                                        <td>CA</td>
+                                                        <td>5K-0XOH-YYTD</td>
+                                                        <td>B07CP3VPPG</td>
+                                                        <td>(0) 2in 1 NO FALL Sponge Holder</td>
+                                                        <td>1.90</td>
+                                                        <!-- <td><span class="ms-add-edit-box">4</span></td> -->
+                                                        <td>
+                                                            <div class="ms-add-edit">
+                                                                <a href="javascript:void(0)" class="dropdown-togglems ms-add-edit-box">4</a>                                                                
+                                                                <div class="dropdown-menu mt-0 p-2">
+                                                                    <div class="d-flex align-items-center justify-content-between mb-2">
+                                                                        <h5 class="font-weight-bold mb-0">COGS History</h5>
+                                                                        <svg class="ms-add-icon" width="11" height="11" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M8.6549 0.152397V16.5632M0.449219 8.35778H16.86" stroke="currentColor" stroke-width="2"></path>
+                                                                        </svg> 
+                                                                    </div>
+                                                                    <ul class="ms-cogs-list m-0 p-0">
+                                                                        <li class="d-flex justify-content-between pb-2 mb-2">
+                                                                            <span>2024-04-02</span>
+                                                                            <span class="d-flex flex-row">1.10
+                                                                                <div>
+                                                                                    <svg class="mr-1 ml-2" width="12" height="13" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path d="M0.753906 13.8135L0.795395 13.2403C0.836884 12.6398 1.09291 9.58927 2.0548 8.62684C2.57262 8.12139 3.26883 7.84047 3.99243 7.84502C4.71602 7.84957 5.40865 8.13922 5.92006 8.65114C6.43148 9.16306 6.72045 9.85597 6.72429 10.5796C6.72813 11.3032 6.44653 11.9991 5.94057 12.5164C4.97868 13.4783 1.9287 13.7338 1.32656 13.7753L0.753906 13.8135ZM13.3513 1.19868C13.0327 0.894435 12.6091 0.72467 12.1686 0.72467C11.728 0.72467 11.3044 0.894435 10.9858 1.19868L5.24563 6.94107C5.79451 7.12784 6.29343 7.43762 6.70425 7.84673C7.11507 8.25585 7.42692 8.75348 7.61596 9.30158L13.3513 3.56355C13.6644 3.24967 13.8402 2.82444 13.8402 2.38111C13.8402 1.93778 13.6644 1.51255 13.3513 1.19868Z" fill="#666699"></path>
+                                                                                    </svg>
+                                                                                    <svg width="14" height="14" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path d="M14.6365 3.32528C14.6365 2.77921 14.1939 2.33652 13.6478 2.33652H11.1587C10.7422 1.15486 9.62732 0.363026 8.37441 0.359009H6.3969C5.14399 0.363026 4.02907 1.15486 3.61256 2.33652H1.12352C0.57745 2.33652 0.134766 2.77921 0.134766 3.32528C0.134766 3.87135 0.57745 4.31403 1.12352 4.31403H1.45312V12.5537C1.45312 14.5559 3.07628 16.1791 5.07855 16.1791H9.69273C11.695 16.1791 13.3182 14.5559 13.3182 12.5537V4.31403H13.6478C14.1939 4.31403 14.6365 3.87135 14.6365 3.32528ZM11.3407 12.5537C11.3407 13.4638 10.6029 14.2016 9.69276 14.2016H5.07855C4.16843 14.2016 3.43063 13.4638 3.43063 12.5537V4.31403H11.3407V12.5537Z" fill="#FF6F6F"></path>
+                                                                                        <path d="M5.73774 12.2241C6.28381 12.2241 6.72649 11.7814 6.72649 11.2353V7.2803C6.72649 6.73423 6.28381 6.29155 5.73774 6.29155C5.19167 6.29155 4.74898 6.73423 4.74898 7.2803V11.2353C4.74898 11.7814 5.19167 12.2241 5.73774 12.2241Z" fill="#FF6F6F"></path>
+                                                                                        <path d="M9.03357 12.2241C9.57964 12.2241 10.0223 11.7814 10.0223 11.2353V7.2803C10.0223 6.73423 9.57964 6.29155 9.03357 6.29155C8.4875 6.29155 8.04482 6.73423 8.04482 7.2803V11.2353C8.04482 11.7814 8.4875 12.2241 9.03357 12.2241Z" fill="#FF6F6F"></path>
+                                                                                    </svg>
+                                                                                </div>
+                                                                            </span>
+                                                                        </li>
+                                                                        <li class="d-flex justify-content-between pb-2 mb-2">
+                                                                            <span>2024-04-02</span>
+                                                                            <span class="d-flex flex-row">1.10
+                                                                                <div>
+                                                                                    <svg class="mr-1 ml-2" width="12" height="13" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path d="M0.753906 13.8135L0.795395 13.2403C0.836884 12.6398 1.09291 9.58927 2.0548 8.62684C2.57262 8.12139 3.26883 7.84047 3.99243 7.84502C4.71602 7.84957 5.40865 8.13922 5.92006 8.65114C6.43148 9.16306 6.72045 9.85597 6.72429 10.5796C6.72813 11.3032 6.44653 11.9991 5.94057 12.5164C4.97868 13.4783 1.9287 13.7338 1.32656 13.7753L0.753906 13.8135ZM13.3513 1.19868C13.0327 0.894435 12.6091 0.72467 12.1686 0.72467C11.728 0.72467 11.3044 0.894435 10.9858 1.19868L5.24563 6.94107C5.79451 7.12784 6.29343 7.43762 6.70425 7.84673C7.11507 8.25585 7.42692 8.75348 7.61596 9.30158L13.3513 3.56355C13.6644 3.24967 13.8402 2.82444 13.8402 2.38111C13.8402 1.93778 13.6644 1.51255 13.3513 1.19868Z" fill="#666699"></path>
+                                                                                    </svg>
+                                                                                    <svg width="14" height="14" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path d="M14.6365 3.32528C14.6365 2.77921 14.1939 2.33652 13.6478 2.33652H11.1587C10.7422 1.15486 9.62732 0.363026 8.37441 0.359009H6.3969C5.14399 0.363026 4.02907 1.15486 3.61256 2.33652H1.12352C0.57745 2.33652 0.134766 2.77921 0.134766 3.32528C0.134766 3.87135 0.57745 4.31403 1.12352 4.31403H1.45312V12.5537C1.45312 14.5559 3.07628 16.1791 5.07855 16.1791H9.69273C11.695 16.1791 13.3182 14.5559 13.3182 12.5537V4.31403H13.6478C14.1939 4.31403 14.6365 3.87135 14.6365 3.32528ZM11.3407 12.5537C11.3407 13.4638 10.6029 14.2016 9.69276 14.2016H5.07855C4.16843 14.2016 3.43063 13.4638 3.43063 12.5537V4.31403H11.3407V12.5537Z" fill="#FF6F6F"></path>
+                                                                                        <path d="M5.73774 12.2241C6.28381 12.2241 6.72649 11.7814 6.72649 11.2353V7.2803C6.72649 6.73423 6.28381 6.29155 5.73774 6.29155C5.19167 6.29155 4.74898 6.73423 4.74898 7.2803V11.2353C4.74898 11.7814 5.19167 12.2241 5.73774 12.2241Z" fill="#FF6F6F"></path>
+                                                                                        <path d="M9.03357 12.2241C9.57964 12.2241 10.0223 11.7814 10.0223 11.2353V7.2803C10.0223 6.73423 9.57964 6.29155 9.03357 6.29155C8.4875 6.29155 8.04482 6.73423 8.04482 7.2803V11.2353C8.04482 11.7814 8.4875 12.2241 9.03357 12.2241Z" fill="#FF6F6F"></path>
+                                                                                    </svg>
+                                                                                </div>
+                                                                            </span>
+                                                                        </li>
+                                                                        <li class="d-flex justify-content-between pb-2 mb-2">
+                                                                            <span>2024-04-02</span>
+                                                                            <span class="d-flex flex-row">1.10
+                                                                                <div>
+                                                                                    <svg class="mr-1 ml-2" width="12" height="13" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path d="M0.753906 13.8135L0.795395 13.2403C0.836884 12.6398 1.09291 9.58927 2.0548 8.62684C2.57262 8.12139 3.26883 7.84047 3.99243 7.84502C4.71602 7.84957 5.40865 8.13922 5.92006 8.65114C6.43148 9.16306 6.72045 9.85597 6.72429 10.5796C6.72813 11.3032 6.44653 11.9991 5.94057 12.5164C4.97868 13.4783 1.9287 13.7338 1.32656 13.7753L0.753906 13.8135ZM13.3513 1.19868C13.0327 0.894435 12.6091 0.72467 12.1686 0.72467C11.728 0.72467 11.3044 0.894435 10.9858 1.19868L5.24563 6.94107C5.79451 7.12784 6.29343 7.43762 6.70425 7.84673C7.11507 8.25585 7.42692 8.75348 7.61596 9.30158L13.3513 3.56355C13.6644 3.24967 13.8402 2.82444 13.8402 2.38111C13.8402 1.93778 13.6644 1.51255 13.3513 1.19868Z" fill="#666699"></path>
+                                                                                    </svg>
+                                                                                    <svg width="14" height="14" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path d="M14.6365 3.32528C14.6365 2.77921 14.1939 2.33652 13.6478 2.33652H11.1587C10.7422 1.15486 9.62732 0.363026 8.37441 0.359009H6.3969C5.14399 0.363026 4.02907 1.15486 3.61256 2.33652H1.12352C0.57745 2.33652 0.134766 2.77921 0.134766 3.32528C0.134766 3.87135 0.57745 4.31403 1.12352 4.31403H1.45312V12.5537C1.45312 14.5559 3.07628 16.1791 5.07855 16.1791H9.69273C11.695 16.1791 13.3182 14.5559 13.3182 12.5537V4.31403H13.6478C14.1939 4.31403 14.6365 3.87135 14.6365 3.32528ZM11.3407 12.5537C11.3407 13.4638 10.6029 14.2016 9.69276 14.2016H5.07855C4.16843 14.2016 3.43063 13.4638 3.43063 12.5537V4.31403H11.3407V12.5537Z" fill="#FF6F6F"></path>
+                                                                                        <path d="M5.73774 12.2241C6.28381 12.2241 6.72649 11.7814 6.72649 11.2353V7.2803C6.72649 6.73423 6.28381 6.29155 5.73774 6.29155C5.19167 6.29155 4.74898 6.73423 4.74898 7.2803V11.2353C4.74898 11.7814 5.19167 12.2241 5.73774 12.2241Z" fill="#FF6F6F"></path>
+                                                                                        <path d="M9.03357 12.2241C9.57964 12.2241 10.0223 11.7814 10.0223 11.2353V7.2803C10.0223 6.73423 9.57964 6.29155 9.03357 6.29155C8.4875 6.29155 8.04482 6.73423 8.04482 7.2803V11.2353C8.04482 11.7814 8.4875 12.2241 9.03357 12.2241Z" fill="#FF6F6F"></path>
+                                                                                    </svg>
+                                                                                </div>
+                                                                            </span>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>CAD</td>
+                                                        <td>2023-05-10</td>
+                                                    </tr>
+                                                    <tr class="align-baseline">
+                                                        <td>2</td>
+                                                        <td>Testsseller2</td>
+                                                        <td>US</td>
+                                                        <td>1524</td>
+                                                        <td>B000OX89VK</td>
+                                                        <td>MidWest I Crate 1524-24 Inch Fol...</td>
+                                                        <td>1.12</td>
+                                                        <td><span class="ms-add-edit-box">2</span></td>
+                                                        <td>USD</td>
+                                                        <td>2023-03-13</td>
+                                                    </tr>
+                                                    <tr class="align-baseline">
+                                                        <td>3</td>
+                                                        <td>Testsseller2</td>
+                                                        <td>US</td>
+                                                        <td>1524</td>
+                                                        <td>B000OX89VK</td>
+                                                        <td>MidWest I Crate 1524-24 Inch Fol...</td>
+                                                        <td>1.12</td>
+                                                        <td><span class="ms-add-edit-box">2</span></td>
+                                                        <td>USD</td>
+                                                        <td>2023-03-13</td>
+                                                    </tr>
+                                                    <tr class="align-baseline">
+                                                        <td>4</td>
+                                                        <td>Testsseller2</td>
+                                                        <td>US</td>
+                                                        <td>1524</td>
+                                                        <td>B000OX89VK</td>
+                                                        <td>MidWest I Crate 1524-24 Inch Fol...</td>
+                                                        <td>1.12</td>
+                                                        <td><span class="ms-add-edit-box">2</span></td>
+                                                        <td>USD</td>
+                                                        <td>2023-03-13</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="ms-table-footer d-flex align-items-center justify-content-between flex-column flex-md-row">
+                                                <p class="mb-3 mb-md-0 font-weight-bold">Showing 1 to 25 of 553 entries</p>
+                                                <div class="ms-table-pagination mb-3 mb-md-0">
+                                                    <a href="#." class="">
+                                                        <svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M9.41943 0.623169L1.22168 8.82092L9.41943 17.0187" stroke="currentColor"/>
+                                                        </svg>
+                                                    </a>
+                                                    <a href="#." class="active">1</a>
+                                                    <a href="#." class="">2 </a>
+                                                    <a href="#." class="">3</a>
+                                                    <a href="#." class="mr-0">
+                                                        <svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M0.869629 0.623169L9.06738 8.82092L0.869629 17.0187" stroke="currentColor"/>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                                <p class="mb-3 mb-md-0 font-weight-bold d-flex align-items-center">Show 
+                                                    <select class="ml-2">
+                                                        <option>25</option>
+                                                        <option>50</option>
+                                                        <option>100</option>
+                                                        <option>500</option>
+                                                    </select>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade p-4" id="nav-cogs_history" role="tabpanel" aria-labelledby="nav-cogs_history-tab">
+                                        <h3 class="ms-font-29 ms-font-600 mt-1">COGS History</h3>
+                                        <p class="ms-font-15 ms-font-600 mb-4 pb-2">A  log of your COGS updates and how the COGS was updated. For accurate profit and loss, ensure your “SKU without cost” becomes zero.</p>
+                                        <div class="ms-table">
+                                            <div class="ms-table-responsive ms-manage-cogs-table ms-table-radius">
+                                                <table class="w-100">
+                                                    <tr class="align-baseline">
+                                                        <th>Date Updated (UTC)</th>
+                                                        <th>Updated By</th>
+                                                        <th>Updated via App</th>
+                                                        <th>Updated via Upload</th>
+                                                        <th>SKU Marked as Zero</th>
+                                                        <th>SKUs without Cost</th>
+                                                        <th>Total SKU</th>
+                                                        <th>Export</th>
+                                                    </tr>
+                                                    <tr class="align-baseline">
+                                                        <td>2023-06-07 <span class="ms-active-badge">Active</span></td>
+                                                        <td>groiagency@gmail.com</td>
+                                                        <td>2</td>
+                                                        <td>0</td>
+                                                        <td>313</td>
+                                                        <td>24</td>
+                                                        <td>538</td>
+                                                        <td>
+                                                            <a href="#.">
+                                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M13.7708 13.1312C13.7708 13.5945 13.3967 13.9685 12.9334 13.9685H1.2104C0.747066 13.9685 0.373047 13.5945 0.373047 13.1312C0.373047 12.6678 0.747066 12.2938 1.2104 12.2938H12.9334C13.3967 12.2938 13.7708 12.6678 13.7708 13.1312ZM2.04218 7.12454C1.50627 6.58863 1.34438 5.78477 1.63466 5.08139C1.92495 4.37801 2.606 3.92026 3.3652 3.92026H4.28071V2.52466C4.28071 1.44726 5.15714 0.570831 6.23454 0.570831H7.90926C8.98665 0.570831 9.86309 1.44726 9.86309 2.52466V3.92026H10.7786C11.5434 3.92026 12.2189 4.38359 12.5091 5.08139C12.7994 5.78477 12.6375 6.58863 12.1016 7.12454L8.76894 10.4684C8.30002 10.9373 7.68596 11.1662 7.0719 11.1662C6.45784 11.1662 5.84378 10.9317 5.37486 10.4684L2.04218 7.12454ZM3.22564 5.94108L6.5639 9.2905C6.84302 9.56962 7.30078 9.56962 7.58548 9.2905L10.9182 5.94108C10.9851 5.87409 10.9963 5.80152 10.9628 5.71778C10.9293 5.63405 10.8679 5.58939 10.773 5.58939H9.02573C8.5624 5.58939 8.18838 5.21537 8.18838 4.75203V2.52466C8.18838 2.37394 8.05998 2.24554 7.90926 2.24554H6.23454C6.07824 2.24554 5.95542 2.36836 5.95542 2.52466V4.75761C5.95542 5.22095 5.58141 5.59497 5.11807 5.59497H3.3652C3.27588 5.59497 3.21448 5.63963 3.18098 5.72337C3.14749 5.8071 3.15865 5.87967 3.22564 5.94666V5.94108Z" fill="#565157"/>
+                                                                </svg>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="align-baseline">
+                                                        <td>2023-06-13</td>
+                                                        <td>groiagency@gmail.com</td>
+                                                        <td>3</td>
+                                                        <td>0</td>
+                                                        <td>313</td>
+                                                        <td>0</td>
+                                                        <td>511</td>
+                                                        <td>
+                                                            <a href="#.">
+                                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M13.7708 13.1312C13.7708 13.5945 13.3967 13.9685 12.9334 13.9685H1.2104C0.747066 13.9685 0.373047 13.5945 0.373047 13.1312C0.373047 12.6678 0.747066 12.2938 1.2104 12.2938H12.9334C13.3967 12.2938 13.7708 12.6678 13.7708 13.1312ZM2.04218 7.12454C1.50627 6.58863 1.34438 5.78477 1.63466 5.08139C1.92495 4.37801 2.606 3.92026 3.3652 3.92026H4.28071V2.52466C4.28071 1.44726 5.15714 0.570831 6.23454 0.570831H7.90926C8.98665 0.570831 9.86309 1.44726 9.86309 2.52466V3.92026H10.7786C11.5434 3.92026 12.2189 4.38359 12.5091 5.08139C12.7994 5.78477 12.6375 6.58863 12.1016 7.12454L8.76894 10.4684C8.30002 10.9373 7.68596 11.1662 7.0719 11.1662C6.45784 11.1662 5.84378 10.9317 5.37486 10.4684L2.04218 7.12454ZM3.22564 5.94108L6.5639 9.2905C6.84302 9.56962 7.30078 9.56962 7.58548 9.2905L10.9182 5.94108C10.9851 5.87409 10.9963 5.80152 10.9628 5.71778C10.9293 5.63405 10.8679 5.58939 10.773 5.58939H9.02573C8.5624 5.58939 8.18838 5.21537 8.18838 4.75203V2.52466C8.18838 2.37394 8.05998 2.24554 7.90926 2.24554H6.23454C6.07824 2.24554 5.95542 2.36836 5.95542 2.52466V4.75761C5.95542 5.22095 5.58141 5.59497 5.11807 5.59497H3.3652C3.27588 5.59497 3.21448 5.63963 3.18098 5.72337C3.14749 5.8071 3.15865 5.87967 3.22564 5.94666V5.94108Z" fill="#565157"/>
+                                                                </svg>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="align-baseline">
+                                                        <td>2023-06-12</td>
+                                                        <td>groiagency@gmail.com</td>
+                                                        <td>20</td>
+                                                        <td>539</td>
+                                                        <td>313</td>
+                                                        <td>0</td>
+                                                        <td>511</td>
+                                                        <td>
+                                                            <a href="#.">
+                                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M13.7708 13.1312C13.7708 13.5945 13.3967 13.9685 12.9334 13.9685H1.2104C0.747066 13.9685 0.373047 13.5945 0.373047 13.1312C0.373047 12.6678 0.747066 12.2938 1.2104 12.2938H12.9334C13.3967 12.2938 13.7708 12.6678 13.7708 13.1312ZM2.04218 7.12454C1.50627 6.58863 1.34438 5.78477 1.63466 5.08139C1.92495 4.37801 2.606 3.92026 3.3652 3.92026H4.28071V2.52466C4.28071 1.44726 5.15714 0.570831 6.23454 0.570831H7.90926C8.98665 0.570831 9.86309 1.44726 9.86309 2.52466V3.92026H10.7786C11.5434 3.92026 12.2189 4.38359 12.5091 5.08139C12.7994 5.78477 12.6375 6.58863 12.1016 7.12454L8.76894 10.4684C8.30002 10.9373 7.68596 11.1662 7.0719 11.1662C6.45784 11.1662 5.84378 10.9317 5.37486 10.4684L2.04218 7.12454ZM3.22564 5.94108L6.5639 9.2905C6.84302 9.56962 7.30078 9.56962 7.58548 9.2905L10.9182 5.94108C10.9851 5.87409 10.9963 5.80152 10.9628 5.71778C10.9293 5.63405 10.8679 5.58939 10.773 5.58939H9.02573C8.5624 5.58939 8.18838 5.21537 8.18838 4.75203V2.52466C8.18838 2.37394 8.05998 2.24554 7.90926 2.24554H6.23454C6.07824 2.24554 5.95542 2.36836 5.95542 2.52466V4.75761C5.95542 5.22095 5.58141 5.59497 5.11807 5.59497H3.3652C3.27588 5.59497 3.21448 5.63963 3.18098 5.72337C3.14749 5.8071 3.15865 5.87967 3.22564 5.94666V5.94108Z" fill="#565157"/>
+                                                                </svg>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade p-4" id="nav-upload_cogs" role="tabpanel" aria-labelledby="nav-upload_cogs-tab">
+                                        <div class="row">
+                                            <div class="col-md-12 col-lg-10 col-xl-8">
+                                                <h3 class="ms-font-29 ms-font-600 mt-1 mb-4">Upload COGS</h3>
+                                                <div class="ms-one d-flex align-items-center">
+                                                    <span class="text-white ms-font-14 d-inline-flex align-items-center justify-content-center">1</span>
+                                                    <p class="ms-font-600 mb-0 ml-2">Export CSV to your computer</p>
+                                                </div>
+                                                <div class="ms-inner-row d-flex align-items-center mt-4 p-3 p-md-4 flex-column flex-md-row">
+                                                    <div class="col-md-6 px-0 pr-4">
+                                                        <p class="mb-0 ms-font-500 ms-font-15 pb-3 pb-md-0">Download COGS data will includes  all SKUs found in your seller accounts(s)</p>
+                                                    </div>
+                                                    <div class="col-md-6 px-0 text-right pl-1">
+                                                        <a class="ms-btn ms-purple-btn d-flex align-items-center justify-content-center" href="#.">
+                                                            <svg class="mr-3" width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M16.2664 9.68793H14.0519C13.2377 9.68793 12.5756 10.3501 12.5756 11.1642C12.5756 11.9784 11.9135 12.6405 11.0993 12.6405H8.14668C7.33249 12.6405 6.67037 11.9784 6.67037 11.1642C6.67037 10.3501 6.00825 9.68793 5.19406 9.68793H2.9796C1.75869 9.68793 0.765137 10.6815 0.765137 11.9024V14.855C0.765137 16.8901 2.42082 18.5458 4.45591 18.5458H14.7901C16.8252 18.5458 18.4808 16.8901 18.4808 14.855V11.9024C18.4808 10.6815 17.4873 9.68793 16.2664 9.68793ZM17.0045 14.855C17.0045 16.0759 16.011 17.0695 14.7901 17.0695H4.45591C3.235 17.0695 2.24144 16.0759 2.24144 14.855V11.9024C2.24144 11.4949 2.57214 11.1642 2.9796 11.1642L5.19406 11.1628V11.1642C5.19406 12.7926 6.51831 14.1169 8.14668 14.1169H11.0993C12.7277 14.1169 14.0519 12.7926 14.0519 11.1642H16.2664C16.6738 11.1642 17.0045 11.4949 17.0045 11.9024V14.855ZM6.1485 6.08647C5.85988 5.79786 5.85988 5.33134 6.1485 5.04272C6.43711 4.75411 6.90363 4.75411 7.19224 5.04272L8.88483 6.73531V1.56823C8.88483 1.16003 9.21479 0.830078 9.62299 0.830078C10.0312 0.830078 10.3611 1.16003 10.3611 1.56823V6.73531L12.0537 5.04272C12.3423 4.75411 12.8089 4.75411 13.0975 5.04272C13.3861 5.33134 13.3861 5.79786 13.0975 6.08647L10.6667 8.51721C10.3811 8.80288 10.0054 8.94682 9.62963 8.9483L9.62299 8.94977L9.61634 8.9483C9.24062 8.94682 8.8649 8.80288 8.57924 8.51721L6.1485 6.08647Z" fill="currentColor"/>
+                                                            </svg>
+                                                            Download COGS data  (.csv)
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="ms-inner-row d-flex align-items-center mt-4 p-3 p-md-4 flex-column flex-md-row">
+                                                    <div class="col-md-6 px-0 pr-4">
+                                                        <p class="mb-0 ms-font-500 ms-font-15 pb-3 pb-md-0">Download COGS data will includes  all SKUs found in your seller accounts(s)</p>
+                                                    </div>
+                                                    <div class="col-md-6 px-0 text-right pl-1">
+                                                        <a class="ms-btn ms-purple-btn d-flex align-items-center justify-content-center" href="#.">
+                                                            <svg class="mr-3" width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M16.2664 9.68793H14.0519C13.2377 9.68793 12.5756 10.3501 12.5756 11.1642C12.5756 11.9784 11.9135 12.6405 11.0993 12.6405H8.14668C7.33249 12.6405 6.67037 11.9784 6.67037 11.1642C6.67037 10.3501 6.00825 9.68793 5.19406 9.68793H2.9796C1.75869 9.68793 0.765137 10.6815 0.765137 11.9024V14.855C0.765137 16.8901 2.42082 18.5458 4.45591 18.5458H14.7901C16.8252 18.5458 18.4808 16.8901 18.4808 14.855V11.9024C18.4808 10.6815 17.4873 9.68793 16.2664 9.68793ZM17.0045 14.855C17.0045 16.0759 16.011 17.0695 14.7901 17.0695H4.45591C3.235 17.0695 2.24144 16.0759 2.24144 14.855V11.9024C2.24144 11.4949 2.57214 11.1642 2.9796 11.1642L5.19406 11.1628V11.1642C5.19406 12.7926 6.51831 14.1169 8.14668 14.1169H11.0993C12.7277 14.1169 14.0519 12.7926 14.0519 11.1642H16.2664C16.6738 11.1642 17.0045 11.4949 17.0045 11.9024V14.855ZM6.1485 6.08647C5.85988 5.79786 5.85988 5.33134 6.1485 5.04272C6.43711 4.75411 6.90363 4.75411 7.19224 5.04272L8.88483 6.73531V1.56823C8.88483 1.16003 9.21479 0.830078 9.62299 0.830078C10.0312 0.830078 10.3611 1.16003 10.3611 1.56823V6.73531L12.0537 5.04272C12.3423 4.75411 12.8089 4.75411 13.0975 5.04272C13.3861 5.33134 13.3861 5.79786 13.0975 6.08647L10.6667 8.51721C10.3811 8.80288 10.0054 8.94682 9.62963 8.9483L9.62299 8.94977L9.61634 8.9483C9.24062 8.94682 8.8649 8.80288 8.57924 8.51721L6.1485 6.08647Z" fill="currentColor"/>
+                                                            </svg>
+                                                            Download blank template(.csv)
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="ms-one ms-two d-flex align-items-center mt-5 mb-4">
+                                                    <span class="text-white ms-font-14 d-inline-flex align-items-center justify-content-center">2</span>
+                                                    <p class="ms-font-600 mb-0 ml-2">Upload your CSV file</p>
+                                                </div>
+                                                <div class="ms-upload-area d-block mb-4 d-flex align-items-center justify-content-between flex-column flex-md-row">
+                                                    <div class="col-md-4 col-lg-6 col-xl-4 px-0 d-flex align-items-center">
+                                                        <img src="images/csv_icon.svg" class="img-fluid" alt="CSV Icon Image">
+                                                        <p class="mb-0 ms-font-17 font-weight-bold ml-3">Drag files here or browse CSV files</p>
+                                                    </div>
+                                                    <a href="#." class="ms-btn ms-green-btn ms-upload-btn ms-upload-btn2 d-flex align-items-center">
+                                                        <svg class="mr-3" width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <g clip-path="url(#clip0_111_1683)">
+                                                                <path d="M7.40409 4.95505L10.0862 2.51591L10.0798 15.3807C10.0798 15.8409 10.4902 16.214 10.9964 16.214C11.5027 16.214 11.9131 15.8409 11.9131 15.3807L11.9195 2.53009L14.5888 4.95755C14.9529 5.27727 15.5332 5.26813 15.8849 4.93708C16.228 4.61416 16.228 4.10217 15.8849 3.77925L12.9416 1.10011C11.868 0.123485 10.1268 0.122978 9.05251 1.09898C9.05208 1.09937 9.0517 1.09972 9.05127 1.10011L6.10791 3.77675C5.75622 4.1078 5.76627 4.63533 6.13043 4.95505C6.48564 5.26696 7.04883 5.26696 7.40409 4.95505Z" fill="currentColor"/>
+                                                                <path d="M21.0795 13.7008C20.5733 13.7008 20.1629 14.0739 20.1629 14.5341V17.8674C20.1629 18.3276 19.7525 18.7007 19.2462 18.7007H2.7465C2.24025 18.7007 1.82986 18.3276 1.82986 17.8674V14.5341C1.82986 14.0739 1.41947 13.7008 0.91322 13.7008C0.40697 13.7008 -0.00341797 14.0739 -0.00341797 14.5341V17.8674C-0.00341797 19.2481 1.22779 20.3673 2.74654 20.3673H19.2463C20.765 20.3673 21.9962 19.2481 21.9962 17.8674V14.5341C21.9962 14.0739 21.5858 13.7008 21.0795 13.7008Z" fill="currentColor"/>
+                                                            </g>
+                                                            <defs>
+                                                                <clipPath id="clip0_111_1683">
+                                                                    <rect width="22" height="20" fill="white" transform="translate(-0.00439453 0.36731)"/>
+                                                                </clipPath>
+                                                            </defs>
+                                                        </svg>
+                                                        Choose file
+                                                    </a>
+                                                </div>
+                                                <a href="#." class="ms-btn ms-green-btn">Upload COGS</a>
+                                                <p class="m-0 ms-font-15 ms-font-500 mt-3">Supported file formats: csv and the maximum size is 8MB</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./Gorilla ROI Software_files/jquery.3.2.1.min.js.download" type="text/javascript"></script>
+    <script src="./Gorilla ROI Software_files/jquery.form.min.js.download" type="text/javascript"></script>
+    <script src="./Gorilla ROI Software_files/popper.min.js.download" type="text/javascript"></script>
+    <script src="./Gorilla ROI Software_files/bootstrap.min.js.download" type="text/javascript"></script>
+
+    <script>
+        jQuery(document).ready(function (e) {
+            function t(t) {
+                e(t).bind("click", function (t) {
+                    t.preventDefault();
+                    e(this).parent().fadeOut()
+                })
+            }
+            e(".dropdown-togglems").click(function () {
+                var t = e(this).parents(".ms-add-edit").children(".dropdown-menu").is(":hidden");
+                e(".ms-add-edit .dropdown-menu").hide();
+                e(".ms-add-edit .dropdown-togglems").removeClass("active");
+                if (t) {
+                    e(this).parents(".ms-add-edit").children(".dropdown-menu").toggle().parents(".ms-add-edit").children(".dropdown-togglems").addClass("active")
+                }
+            });
+            e(document).bind("click", function (t) {
+                var n = e(t.target);
+                if (!n.parents().hasClass("ms-add-edit")) e(".ms-add-edit .dropdown-menu").hide();
+            });
+            e(document).bind("click", function (t) {
+                var n = e(t.target);
+                if (!n.parents().hasClass("ms-add-edit")) e(".ms-add-edit .dropdown-togglems").removeClass("active");
+            })
+        });
+    </script>
+<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+<!-- <script src="./Gorilla ROI Software_files/bootstrap-switch.js.download"></script> -->
+<!--  Chartist Plugin  -->
+<!-- <script src="./Gorilla ROI Software_files/chartist.min.js.download"></script> -->
+<!--  Notifications Plugin    -->
+<!-- <script src="./Gorilla ROI Software_files/bootstrap-notify.js.download"></script>
+<script type="text/javascript" src="./Gorilla ROI Software_files/saved_resource"></script> -->
+<!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
+<!-- <script src="./Gorilla ROI Software_files/light-bootstrap-dashboard.js.download" type="text/javascript"></script><script src="./Gorilla ROI Software_files/custom.js.download" type="text/javascript"></script><iframe name="__privateStripeController3261" frameborder="0" allowtransparency="true" scrolling="no" role="presentation" allow="payment *" src="./Gorilla ROI Software_files/controller-2a60c5a9f22c11338921f19168132a95.html" aria-hidden="true" tabindex="-1" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe>
+<iframe name="__privateStripeMetricsController3260" frameborder="0" allowtransparency="true" scrolling="no" role="presentation" allow="payment *" src="./Gorilla ROI Software_files/m-outer-3437aaddcdf6922d623e172c2d6f9278.html" aria-hidden="true" tabindex="-1" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe> -->
+
+</body>
+</html>
